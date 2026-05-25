@@ -7,573 +7,172 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-dark: #0e0e0e;
-    --green-mid: #1a1a1a;
-    --green-pitch: #1e1e1e;
-    --green-line: #2a2a2a;
-    --accent: #e8001c;
-    --accent-dim: #b00015;
-    --gold: #d4a843;
-    --white: #f5f2eb;
-    --white-dim: rgba(245,242,235,0.55);
-    --white-faint: rgba(245,242,235,0.08);
-    --red: #e84040;
-    --amber: #d4a843;
-    --sidebar-w: 280px;
-    --radius: 10px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--green-dark);
-    color: var(--white);
-    min-height: 100vh;
-    display: flex;
-    overflow: hidden;
-  }
-
-  /* ── SIDEBAR ── */
-  #sidebar {
-    width: var(--sidebar-w);
-    min-width: var(--sidebar-w);
-    height: 100vh;
-    background: var(--green-mid);
-    border-right: 1px solid rgba(232,0,28,0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .sidebar-top {
-    padding: 1.5rem 1.25rem 1rem;
-    border-bottom: 1px solid var(--white-faint);
-  }
-
-  .app-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 0.04em;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .app-sub {
-    font-size: 11px;
-    color: var(--white-dim);
-    margin-top: 4px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .filter-bar {
-    padding: 0.75rem 1.25rem;
-    border-bottom: 1px solid var(--white-faint);
-  }
-
-  .filter-bar label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--white-dim);
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .filter-bar select {
-    width: 100%;
-    background: var(--white-faint);
-    border: 1px solid rgba(200,245,58,0.15);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    padding: 7px 10px;
-    border-radius: 6px;
-    appearance: none;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .filter-bar select:focus {
-    border-color: var(--accent);
-  }
-
-  .filter-bar select option {
-    background: var(--green-mid);
-    color: var(--white);
-  }
-
-  .match-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 0.5rem 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--white-faint) transparent;
-  }
-
-  .match-list-section {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--white-dim);
-    padding: 0.75rem 1.25rem 0.25rem;
-  }
-
-  .match-item {
-    padding: 10px 1.25rem;
-    cursor: pointer;
-    border-left: 3px solid transparent;
-    transition: background 0.15s, border-color 0.15s;
-    position: relative;
-  }
-
-  .match-item:hover { background: var(--white-faint); }
-
-  .match-item.active {
-    background: rgba(232,0,28,0.08);
-    border-left-color: var(--accent);
-  }
-
-  .match-item-date {
-    font-size: 10px;
-    color: var(--white-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .match-item-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--white);
-    margin: 2px 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .result-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .match-item-sys {
-    font-size: 11px;
-    color: var(--white-dim);
-  }
-
-  .sidebar-footer {
-    padding: 1rem 1.25rem;
-    border-top: 1px solid var(--white-faint);
-  }
-
-  .stats-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-
-  .stat-pill {
-    flex: 1;
-    background: var(--white-faint);
-    border-radius: 6px;
-    padding: 6px 8px;
-    text-align: center;
-  }
-
-  .stat-pill .val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    line-height: 1;
-  }
-
-  .stat-pill .lbl {
-    font-size: 9px;
-    color: var(--white-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── MAIN ── */
-  #main {
-    flex: 1;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 2rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--white-faint) transparent;
-  }
-
-  .empty-state {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--white-dim);
-    gap: 1rem;
-  }
-
-  .empty-icon {
-    width: 60px;
-    height: 60px;
-    opacity: 0.3;
-  }
-
-  /* ── MATCH HEADER ── */
-  .match-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-    flex-wrap: wrap;
-  }
-
-  .match-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    letter-spacing: 0.03em;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .match-title span {
-    color: var(--accent);
-  }
-
-  .match-badges {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-    align-items: center;
-  }
-
-  .badge {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
-  .badge-result-win { background: rgba(50,180,80,0.18); color: #6ee87a; border: 1px solid rgba(50,180,80,0.3); }
-  .badge-result-draw { background: rgba(200,200,200,0.1); color: #bbb; border: 1px solid rgba(200,200,200,0.2); }
-  .badge-result-loss { background: rgba(232,64,64,0.15); color: #f07070; border: 1px solid rgba(232,64,64,0.3); }
-  .badge-sys { background: rgba(212,168,67,0.12); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
-  .badge-date { background: var(--white-faint); color: var(--white-dim); border: 1px solid transparent; }
-
-  .stars {
-    display: flex;
-    gap: 3px;
-    font-size: 16px;
-  }
-
-  .star { color: var(--white-faint); cursor: pointer; transition: color 0.1s; }
-  .star.on { color: var(--amber); }
-
-  /* ── TABS ── */
-  .tabs {
-    display: flex;
-    gap: 0;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--white-faint);
-  }
-
-  .tab {
-    padding: 8px 20px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--white-dim);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    letter-spacing: 0.03em;
-    transition: color 0.15s, border-color 0.15s;
-  }
-
-  .tab:hover { color: var(--white); }
-
-  .tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-
-  /* ── GRID ── */
-  .grid2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .card {
-    background: var(--green-mid);
-    border: 1px solid var(--white-faint);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-  }
-
-  .card-title {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--white-dim);
-    margin-bottom: 0.75rem;
-  }
-
-  .formation-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  .pitch-wrap {
-    display: flex;
-    justify-content: center;
-  }
-
-  /* ── ANIMATIONS ── */
-  .anim-item {
-    display: flex;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--white-faint);
-    align-items: flex-start;
-  }
-
-  .anim-item:last-child { border-bottom: none; }
-
-  .anim-badge {
-    font-size: 10px;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .anim-off { background: rgba(232,0,28,0.12); color: #ff6070; border: 1px solid rgba(232,0,28,0.25); }
-  .anim-def { background: rgba(50,130,230,0.12); color: #7ab8f0; border: 1px solid rgba(50,130,230,0.25); }
-
-  .anim-label { font-size: 13px; font-weight: 500; color: var(--white); }
-  .anim-detail { font-size: 12px; color: var(--white-dim); margin-top: 2px; line-height: 1.5; }
-
-  /* ── SOLUTIONS ── */
-  .solution-item {
-    background: rgba(212,168,67,0.06);
-    border: 1px solid rgba(212,168,67,0.2);
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 8px;
-  }
-
-  .solution-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-
-  .solution-detail {
-    font-size: 13px;
-    color: var(--white-dim);
-    line-height: 1.55;
-  }
-
-  /* ── NOTES ── */
-  .notes-area {
-    background: var(--green-mid);
-    border: 1px solid var(--white-faint);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-  }
-
-  .notes-area textarea {
-    width: 100%;
-    background: var(--white-faint);
-    border: 1px solid rgba(200,245,58,0.15);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 12px;
-    border-radius: 8px;
-    resize: vertical;
-    min-height: 120px;
-    outline: none;
-  }
-
-  .notes-area textarea:focus { border-color: var(--accent); }
-
-  /* ── LOADING ── */
-  #loading {
-    position: fixed;
-    inset: 0;
-    background: var(--green-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    gap: 1rem;
-    transition: opacity 0.4s;
-  }
-
-  #loading .load-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-  }
-
-  #loading .load-sub {
-    font-size: 13px;
-    color: var(--white-dim);
-  }
-
-  #loading .load-bar-wrap {
-    width: 200px;
-    height: 3px;
-    background: var(--white-faint);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  #loading .load-bar {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-    animation: loadbar 1.2s ease-in-out infinite;
-  }
-
-  @keyframes loadbar {
-    0% { width: 0%; margin-left: 0; }
-    50% { width: 60%; }
-    100% { width: 0%; margin-left: 100%; }
-  }
-
-  /* ── LOGIN ── */
-  #login-screen {
-    position: fixed;
-    inset: 0;
-    background: var(--green-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .login-box {
-    background: var(--green-mid);
-    border: 1px solid rgba(212,168,67,0.25);
-    border-radius: 14px;
-    padding: 2.5rem 2rem;
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  .login-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-  }
-
-  .login-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    text-align: center;
-    line-height: 1;
-  }
-
-  .login-sub {
-    font-size: 12px;
-    color: var(--white-dim);
-    text-align: center;
-    margin-top: -0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .login-input {
-    width: 100%;
-    background: var(--white-faint);
-    border: 1px solid rgba(212,168,67,0.2);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.15em;
-    text-align: center;
-    padding: 12px;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-
-  .login-input:focus { border-color: var(--gold); }
-
-  .login-btn {
-    width: 100%;
-    background: var(--accent);
-    color: var(--white);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.08em;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  .login-btn:hover { opacity: 0.85; }
-
-  .login-error {
-    font-size: 12px;
-    color: #f07070;
-    text-align: center;
-    min-height: 16px;
-  }
-
-  @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    20%,60% { transform: translateX(-8px); }
-    40%,80% { transform: translateX(8px); }
-  }
-
-  .shake { animation: shake 0.35s ease; }
-
-  .error-banner {
-    background: rgba(232,64,64,0.15);
-    border: 1px solid rgba(232,64,64,0.3);
-    color: #f07070;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px;
-    margin-bottom: 1rem;
-  }
-
-  @media (max-width: 700px) {
-    body { flex-direction: column; overflow: auto; }
-    #sidebar { width: 100%; min-width: unset; height: auto; max-height: 45vh; }
-    #main { height: auto; padding: 1rem; }
-    .grid2 { grid-template-columns: 1fr; }
-    .match-title { font-size: 28px; }
-  }
+:root {
+  --dark: #0e0e0e;
+  --mid: #1a1a1a;
+  --card: #212121;
+  --accent: #e8001c;
+  --gold: #d4a843;
+  --white: #f5f2eb;
+  --dim: rgba(245,242,235,0.55);
+  --faint: rgba(245,242,235,0.08);
+  --radius: 10px;
+  --sw: 280px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); min-height: 100vh; display: flex; overflow: hidden; }
+
+/* SIDEBAR */
+#sidebar { width: var(--sw); min-width: var(--sw); height: 100vh; background: var(--mid); border-right: 1px solid rgba(232,0,28,0.15); display: flex; flex-direction: column; overflow: hidden; }
+.sb-top { padding: 1.25rem 1rem 0.75rem; border-bottom: 1px solid var(--faint); }
+.app-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.04em; color: var(--gold); line-height: 1; }
+.app-sub { font-size: 10px; color: var(--dim); margin-top: 3px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* MODE TABS */
+.mode-tabs { display: flex; border-bottom: 1px solid var(--faint); }
+.mode-tab { flex: 1; padding: 10px; font-size: 12px; font-weight: 500; text-align: center; cursor: pointer; color: var(--dim); border-bottom: 2px solid transparent; margin-bottom: -1px; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.15s, border-color 0.15s; }
+.mode-tab:hover { color: var(--white); }
+.mode-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* FILTER */
+.filter-bar { padding: 0.6rem 1rem; border-bottom: 1px solid var(--faint); }
+.filter-bar label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); display: block; margin-bottom: 4px; }
+.filter-bar select { width: 100%; background: var(--faint); border: 1px solid rgba(232,0,28,0.2); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 12px; padding: 6px 10px; border-radius: 6px; appearance: none; cursor: pointer; outline: none; }
+.filter-bar select option { background: var(--mid); color: var(--white); }
+
+/* MATCH LIST */
+.match-list { flex: 1; overflow-y: auto; padding: 0.4rem 0; scrollbar-width: thin; scrollbar-color: var(--faint) transparent; }
+.list-section { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); padding: 0.6rem 1rem 0.2rem; }
+.match-item { padding: 9px 1rem; cursor: pointer; border-left: 3px solid transparent; transition: background 0.15s, border-color 0.15s; }
+.match-item:hover { background: var(--faint); }
+.match-item.active { background: rgba(232,0,28,0.08); border-left-color: var(--accent); }
+.match-item.active-analyse { background: rgba(212,168,67,0.08); border-left-color: var(--gold); }
+.mi-date { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.mi-name { font-size: 13px; font-weight: 500; color: var(--white); margin: 2px 0; display: flex; align-items: center; gap: 6px; }
+.rdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.mi-sys { font-size: 11px; color: var(--dim); }
+
+/* FOOTER */
+.sb-footer { padding: 0.75rem 1rem; border-top: 1px solid var(--faint); }
+.stats-row { display: flex; gap: 6px; margin-bottom: 8px; }
+.stat-pill { flex: 1; background: var(--faint); border-radius: 6px; padding: 5px 6px; text-align: center; }
+.stat-pill .val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; line-height: 1; }
+.stat-pill .lbl { font-size: 9px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* MAIN */
+#main { flex: 1; height: 100vh; overflow-y: auto; padding: 2rem; scrollbar-width: thin; scrollbar-color: var(--faint) transparent; }
+.empty-state { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--dim); gap: 1rem; font-size: 14px; }
+
+/* MATCH HEADER */
+.match-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.match-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.03em; color: var(--white); line-height: 1; }
+.match-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+.badge { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; letter-spacing: 0.03em; }
+.badge-win { background: rgba(50,180,80,0.18); color: #6ee87a; border: 1px solid rgba(50,180,80,0.3); }
+.badge-draw { background: rgba(200,200,200,0.1); color: #bbb; border: 1px solid rgba(200,200,200,0.2); }
+.badge-loss { background: rgba(232,64,64,0.15); color: #f07070; border: 1px solid rgba(232,64,64,0.3); }
+.badge-sys { background: rgba(212,168,67,0.12); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+.badge-date { background: var(--faint); color: var(--dim); border: 1px solid transparent; }
+.stars { display: flex; gap: 3px; font-size: 16px; }
+.star { color: var(--faint); cursor: pointer; transition: color 0.1s; }
+.star.on { color: var(--gold); }
+
+/* TABS */
+.tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
+.tab { padding: 8px 18px; font-size: 13px; font-weight: 500; color: var(--dim); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; letter-spacing: 0.03em; transition: color 0.15s, border-color 0.15s; }
+.tab:hover { color: var(--white); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab.active-gold { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* GRID / CARDS */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.card { background: var(--card); border: 1px solid var(--faint); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.card:last-child { margin-bottom: 0; }
+.card-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 0.75rem; }
+.formation-label { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.05em; margin-bottom: 10px; }
+.pitch-wrap { display: flex; justify-content: center; }
+
+/* ANIMATIONS */
+.anim-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--faint); align-items: flex-start; }
+.anim-item:last-child { border-bottom: none; }
+.anim-badge { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
+.anim-off { background: rgba(232,0,28,0.12); color: #ff6070; border: 1px solid rgba(232,0,28,0.25); }
+.anim-def { background: rgba(50,130,230,0.12); color: #7ab8f0; border: 1px solid rgba(50,130,230,0.25); }
+.anim-label { font-size: 13px; font-weight: 500; color: var(--white); }
+.anim-detail { font-size: 12px; color: var(--dim); margin-top: 2px; line-height: 1.5; }
+
+/* SOLUTIONS */
+.solution-item { background: rgba(212,168,67,0.06); border: 1px solid rgba(212,168,67,0.2); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; }
+.solution-title { font-size: 14px; font-weight: 500; color: var(--gold); margin-bottom: 4px; }
+.solution-detail { font-size: 13px; color: var(--dim); line-height: 1.55; }
+
+/* NOTES */
+.notes-block { background: var(--faint); border: 1px solid rgba(212,168,67,0.15); border-radius: 8px; padding: 12px; font-size: 14px; line-height: 1.7; color: var(--white); white-space: pre-line; min-height: 80px; }
+
+/* ANALYSE SECTIONS */
+.analyse-section { margin-bottom: 1rem; }
+.analyse-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+.analyse-section-title::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--gold); border-radius: 2px; }
+.analyse-text { background: var(--faint); border: 1px solid var(--faint); border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.7; color: var(--white); white-space: pre-line; min-height: 70px; }
+.analyse-empty { color: var(--dim); font-style: italic; font-size: 13px; padding: 8px 0; }
+
+/* COMPOSITION TABLE */
+.compo-group-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); margin: 1rem 0 0.5rem; font-weight: 500; }
+.compo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compo-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--faint); font-weight: 500; }
+.compo-table td { padding: 8px 10px; border-bottom: 1px solid var(--faint); color: var(--white); }
+.compo-table tr:last-child td { border-bottom: none; }
+.compo-table tr:hover td { background: var(--faint); }
+.num-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--faint); border-radius: 4px; font-size: 12px; font-weight: 500; color: var(--white); }
+.poste-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; background: rgba(232,0,28,0.12); color: #ff6070; border: 1px solid rgba(232,0,28,0.2); }
+.statut-tit { font-size: 11px; color: #6ee87a; }
+.statut-banc { font-size: 11px; color: var(--dim); }
+
+/* SAISON STATS */
+.saison-team-select { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.team-btn { padding: 6px 14px; font-size: 12px; border-radius: 20px; border: 1px solid var(--faint); background: transparent; color: var(--dim); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
+.team-btn:hover { color: var(--white); border-color: rgba(212,168,67,0.4); }
+.team-btn.active { background: rgba(212,168,67,0.12); color: var(--gold); border-color: rgba(212,168,67,0.4); }
+.team-btn img { width: 16px; height: 16px; object-fit: contain; }
+.saison-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.saison-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--faint); font-weight: 500; }
+.saison-table td { padding: 9px 10px; border-bottom: 1px solid var(--faint); color: var(--white); }
+.saison-table tr:last-child td { border-bottom: none; }
+.saison-table tr:hover td { background: var(--faint); }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--gold); }
+.postes-list { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* LOGIN */
+#login-screen { position: fixed; inset: 0; background: var(--dark); display: flex; align-items: center; justify-content: center; z-index: 200; }
+.login-box { background: var(--mid); border: 1px solid rgba(212,168,67,0.25); border-radius: 14px; padding: 2.5rem 2rem; width: 320px; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.login-logo { width: 80px; height: 80px; object-fit: contain; }
+.login-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 0.05em; text-align: center; line-height: 1; }
+.login-sub { font-size: 12px; color: var(--dim); text-align: center; margin-top: -0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.login-input { width: 100%; background: var(--faint); border: 1px solid rgba(212,168,67,0.2); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 18px; letter-spacing: 0.15em; text-align: center; padding: 12px; border-radius: 8px; outline: none; transition: border-color 0.15s; }
+.login-input:focus { border-color: var(--gold); }
+.login-btn { width: 100%; background: var(--accent); color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.08em; border: none; border-radius: 8px; padding: 12px; cursor: pointer; transition: opacity 0.15s; }
+.login-btn:hover { opacity: 0.85; }
+.login-error { font-size: 12px; color: #f07070; text-align: center; min-height: 16px; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+.shake { animation: shake 0.35s ease; }
+
+/* LOADING */
+#loading { position: fixed; inset: 0; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 1rem; transition: opacity 0.4s; }
+.load-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); letter-spacing: 0.05em; }
+.load-sub { font-size: 13px; color: var(--dim); }
+.load-bar-wrap { width: 200px; height: 3px; background: var(--faint); border-radius: 2px; overflow: hidden; }
+.load-bar { height: 100%; background: var(--accent); border-radius: 2px; animation: loadbar 1.2s ease-in-out infinite; }
+@keyframes loadbar { 0%{width:0%;margin-left:0} 50%{width:60%} 100%{width:0%;margin-left:100%} }
+
+.error-banner { background: rgba(232,64,64,0.15); border: 1px solid rgba(232,64,64,0.3); color: #f07070; border-radius: 8px; padding: 12px 16px; font-size: 13px; margin-bottom: 1rem; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; overflow: auto; }
+  #sidebar { width: 100%; min-width: unset; height: auto; max-height: 45vh; }
+  #main { height: auto; padding: 1rem; }
+  .grid2 { grid-template-columns: 1fr; }
+  .match-title { font-size: 28px; }
+}
 </style>
 </head>
 <body>
@@ -596,20 +195,24 @@
 </div>
 
 <div id="sidebar">
-  <div class="sidebar-top">
+  <div class="sb-top">
     <div class="app-title">Catalogue Tactique</div>
     <div class="app-sub" id="season-label">Saison en cours</div>
   </div>
-  <div class="filter-bar">
+  <div class="mode-tabs">
+    <div class="mode-tab active" id="mode-matchs" onclick="setMode('matchs')">Matchs</div>
+    <div class="mode-tab" id="mode-analyses" onclick="setMode('analyses')">Analyses</div>
+  </div>
+  <div class="filter-bar" id="filter-wrap">
     <label>Filtrer par système adverse</label>
     <select id="filter-sys" onchange="applyFilter()">
       <option value="">Tous les systèmes</option>
     </select>
   </div>
   <div class="match-list" id="match-list"></div>
-  <div class="sidebar-footer">
+  <div class="sb-footer">
     <div class="stats-row" id="stats-row"></div>
-    <div style="font-size:11px;color:var(--white-dim);line-height:1.5">
+    <div style="font-size:11px;color:var(--dim);line-height:1.5">
       Pour ajouter un match, édite <strong style="color:var(--gold)">matchs.json</strong> sur GitHub.
     </div>
   </div>
@@ -617,7 +220,7 @@
 
 <div id="main">
   <div class="empty-state" id="empty">
-    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3">
       <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M2 12h20M12 2c-3 3-4 6-4 10s1 7 4 10M12 2c3 3 4 6 4 10s-1 7-4 10"/>
     </svg>
     <div>Sélectionne un match dans la liste</div>
@@ -628,50 +231,39 @@
 <script>
 const PWD = 'OGCNU19VAL';
 const SESSION_KEY = 'ct_auth';
+let allMatches = [], filtered = [], currentId = null, currentMode = 'matchs';
 
 function checkPwd() {
   const val = document.getElementById('pwd-input').value;
   if (val === PWD) {
     sessionStorage.setItem(SESSION_KEY, '1');
-    const screen = document.getElementById('login-screen');
-    screen.style.opacity = '0';
-    screen.style.transition = 'opacity 0.3s';
-    setTimeout(() => screen.remove(), 300);
+    const s = document.getElementById('login-screen');
+    s.style.opacity = '0'; s.style.transition = 'opacity 0.3s';
+    setTimeout(() => s.remove(), 300);
     init();
   } else {
     const box = document.querySelector('.login-box');
-    const err = document.getElementById('login-error');
-    err.textContent = 'Mot de passe incorrect';
-    box.classList.remove('shake');
-    void box.offsetWidth;
-    box.classList.add('shake');
+    document.getElementById('login-error').textContent = 'Mot de passe incorrect';
+    box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
     document.getElementById('pwd-input').value = '';
   }
 }
 
 function bootApp() {
-  if (sessionStorage.getItem(SESSION_KEY) === '1') {
-    document.getElementById('login-screen').remove();
-    init();
-  }
+  if (sessionStorage.getItem(SESSION_KEY) === '1') { document.getElementById('login-screen').remove(); init(); }
 }
-
 bootApp();
 
-const DATA_URL = 'matchs.json';
-let allMatches = [];
-let filtered = [];
-let currentId = null;
-
 const FORMATIONS = {
-  '4-4-2': [[0.5],[0.2,0.4,0.6,0.8],[0.2,0.4,0.6,0.8],[0.35,0.65]],
-  '4-3-3': [[0.5],[0.2,0.4,0.6,0.8],[0.28,0.5,0.72],[0.2,0.5,0.8]],
-  '4-2-3-1': [[0.5],[0.2,0.4,0.6,0.8],[0.35,0.65],[0.18,0.5,0.82],[0.5]],
-  '5-3-2': [[0.5],[0.12,0.28,0.5,0.72,0.88],[0.25,0.5,0.75],[0.35,0.65]],
-  '3-5-2': [[0.5],[0.28,0.5,0.72],[0.1,0.3,0.5,0.7,0.9],[0.35,0.65]],
-  '4-1-4-1': [[0.5],[0.2,0.4,0.6,0.8],[0.5],[0.15,0.38,0.62,0.85],[0.5]],
-  '3-4-3': [[0.5],[0.25,0.5,0.75],[0.15,0.38,0.62,0.85],[0.2,0.5,0.8]],
-  '4-4-1-1': [[0.5],[0.2,0.4,0.6,0.8],[0.2,0.4,0.6,0.8],[0.5],[0.5]],
+  '4-4-2':[[0.5],[0.2,0.4,0.6,0.8],[0.2,0.4,0.6,0.8],[0.35,0.65]],
+  '4-3-3':[[0.5],[0.2,0.4,0.6,0.8],[0.28,0.5,0.72],[0.2,0.5,0.8]],
+  '4-2-3-1':[[0.5],[0.2,0.4,0.6,0.8],[0.35,0.65],[0.18,0.5,0.82],[0.5]],
+  '5-3-2':[[0.5],[0.12,0.28,0.5,0.72,0.88],[0.25,0.5,0.75],[0.35,0.65]],
+  '3-5-2':[[0.5],[0.28,0.5,0.72],[0.1,0.3,0.5,0.7,0.9],[0.35,0.65]],
+  '4-1-4-1':[[0.5],[0.2,0.4,0.6,0.8],[0.5],[0.15,0.38,0.62,0.85],[0.5]],
+  '3-4-3':[[0.5],[0.25,0.5,0.75],[0.15,0.38,0.62,0.85],[0.2,0.5,0.8]],
+  '5-4-1':[[0.5],[0.1,0.27,0.5,0.73,0.9],[0.18,0.4,0.6,0.82],[0.5]],
+  '4-4-1-1':[[0.5],[0.2,0.4,0.6,0.8],[0.2,0.4,0.6,0.8],[0.5],[0.5]],
 };
 
 function buildFormation(sys) {
@@ -679,141 +271,118 @@ function buildFormation(sys) {
   if (FORMATIONS[key]) return FORMATIONS[key];
   const parts = key.split('-').map(Number);
   const rows = [[0.5]];
-  parts.forEach(n => {
-    const xs = [];
-    for (let j = 0; j < n; j++) xs.push((j + 1) / (n + 1));
-    rows.push(xs);
-  });
+  parts.forEach(n => { const xs = []; for (let j=0;j<n;j++) xs.push((j+1)/(n+1)); rows.push(xs); });
   return rows;
 }
 
-function pitchSVG(sys, accentColor) {
-  const W = 120, H = 170;
-  const rows = buildFormation(sys);
-  const totalRows = rows.length;
-  let dots = '';
-  rows.forEach((xArr, ri) => {
-    const y = 10 + (ri + 0.5) * ((H - 20) / totalRows);
+function pitchSVG(sys, color) {
+  const W=120, H=170, rows=buildFormation(sys), total=rows.length;
+  let dots='';
+  rows.forEach((xArr,ri) => {
+    const y = 10 + (ri+0.5)*((H-20)/total);
     xArr.forEach(xr => {
-      const x = 10 + xr * (W - 20);
-      dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="${accentColor}" opacity="0.9"/>`;
+      const x = 10 + xr*(W-20);
+      dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="${color}" opacity="0.9"/>`;
       dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>`;
     });
   });
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="${W}" height="${H}" rx="6" fill="#1e4010"/>
-    <rect x="8" y="8" width="${W-16}" height="${H-16}" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.7"/>
-    <line x1="8" y1="${H/2}" x2="${W-8}" y2="${H/2}" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
-    <circle cx="${W/2}" cy="${H/2}" r="14" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
-    <rect x="${W*0.25}" y="8" width="${W*0.5}" height="20" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
-    <rect x="${W*0.25}" y="${H-28}" width="${W*0.5}" height="20" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
-    ${dots}
-  </svg>`;
+    <rect x="0" y="0" width="${W}" height="${H}" rx="6" fill="#1e3d10"/>
+    <rect x="8" y="8" width="${W-16}" height="${H-16}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
+    <line x1="8" y1="${H/2}" x2="${W-8}" y2="${H/2}" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+    <circle cx="${W/2}" cy="${H/2}" r="14" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+    <rect x="${W*0.25}" y="8" width="${W*0.5}" height="20" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+    <rect x="${W*0.25}" y="${H-28}" width="${W*0.5}" height="20" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+    ${dots}</svg>`;
 }
 
-function resultColor(r) {
-  return r === 'win' ? '#4caf63' : r === 'loss' ? '#e84040' : '#888';
+function resultColor(r) { return r==='win'?'#4caf63':r==='loss'?'#e84040':'#888'; }
+function resultLabel(r) { return r==='win'?'Victoire':r==='loss'?'Défaite':'Nul'; }
+
+function setMode(mode) {
+  currentMode = mode;
+  currentId = null;
+  document.getElementById('mode-matchs').className = 'mode-tab' + (mode==='matchs'?' active':'');
+  document.getElementById('mode-analyses').className = 'mode-tab' + (mode==='analyses'?' active':'');
+  document.getElementById('filter-wrap').style.display = mode==='matchs' ? '' : 'none';
+  filtered = [...allMatches];
+  if (mode === 'matchs') applyFilter();
+  else renderSidebar();
+  showEmpty();
 }
 
-function resultLabel(r) {
-  return r === 'win' ? 'Victoire' : r === 'loss' ? 'Défaite' : 'Nul';
+function showEmpty() {
+  document.getElementById('empty').style.display = '';
+  document.getElementById('match-view').style.display = 'none';
 }
 
 function applyFilter() {
   const val = document.getElementById('filter-sys').value;
   filtered = val ? allMatches.filter(m => m.systemOpp.startsWith(val)) : [...allMatches];
   renderSidebar();
-  if (filtered.length && !filtered.find(m => m.id === currentId)) {
-    selectMatch(filtered[0].id);
-  }
+  if (filtered.length && currentId && !filtered.find(m => m.id===currentId)) showEmpty();
 }
 
 function renderSidebar() {
   const list = document.getElementById('match-list');
   list.innerHTML = '';
-  if (!filtered.length) {
-    list.innerHTML = '<div style="padding:1rem 1.25rem;font-size:13px;color:var(--white-dim)">Aucun match trouvé</div>';
-    return;
-  }
+  if (!filtered.length) { list.innerHTML = '<div style="padding:1rem;font-size:13px;color:var(--dim)">Aucun match trouvé</div>'; return; }
   const section = document.createElement('div');
-  section.className = 'match-list-section';
-  section.textContent = `${filtered.length} match${filtered.length > 1 ? 's' : ''}`;
+  section.className = 'list-section';
+  section.textContent = filtered.length + ' match' + (filtered.length>1?'s':'');
   list.appendChild(section);
-
   filtered.forEach(m => {
     const el = document.createElement('div');
-    el.className = 'match-item' + (m.id === currentId ? ' active' : '');
-    el.innerHTML = `
-      <div class="match-item-date">${m.date}</div>
-      <div class="match-item-name">
-        <span class="result-dot" style="background:${resultColor(m.result)}"></span>
-        ${m.opponent}
-      </div>
-      <div class="match-item-sys">${m.systemOpp} · ${m.score}</div>
-    `;
-    el.onclick = () => selectMatch(m.id);
+    const isActive = m.id === currentId;
+    el.className = 'match-item' + (isActive ? (currentMode==='analyses'?' active-analyse':' active') : '');
+    el.innerHTML = `<div class="mi-date">${m.date}</div>
+      <div class="mi-name"><span class="rdot" style="background:${resultColor(m.result)}"></span>${m.opponent}</div>
+      <div class="mi-sys">${m.systemOpp} · ${m.score}</div>`;
+    el.onclick = () => currentMode==='matchs' ? selectMatch(m.id) : selectAnalyse(m.id);
     list.appendChild(el);
   });
 }
 
 function renderStats() {
-  const wins = allMatches.filter(m => m.result === 'win').length;
-  const draws = allMatches.filter(m => m.result === 'draw').length;
-  const losses = allMatches.filter(m => m.result === 'loss').length;
+  const w=allMatches.filter(m=>m.result==='win').length;
+  const d=allMatches.filter(m=>m.result==='draw').length;
+  const l=allMatches.filter(m=>m.result==='loss').length;
   document.getElementById('stats-row').innerHTML = `
-    <div class="stat-pill"><div class="val" style="color:#4caf63">${wins}</div><div class="lbl">V</div></div>
-    <div class="stat-pill"><div class="val" style="color:#888">${draws}</div><div class="lbl">N</div></div>
-    <div class="stat-pill"><div class="val" style="color:#e84040">${losses}</div><div class="lbl">D</div></div>
-  `;
+    <div class="stat-pill"><div class="val" style="color:#4caf63">${w}</div><div class="lbl">V</div></div>
+    <div class="stat-pill"><div class="val" style="color:#888">${d}</div><div class="lbl">N</div></div>
+    <div class="stat-pill"><div class="val" style="color:#e84040">${l}</div><div class="lbl">D</div></div>`;
 }
 
 function populateFilter() {
   const sel = document.getElementById('filter-sys');
-  const systems = [...new Set(allMatches.map(m => m.systemOpp.split(' ')[0]))].sort();
-  systems.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s;
-    opt.textContent = s;
-    sel.appendChild(opt);
-  });
+  const systems = [...new Set(allMatches.map(m=>m.systemOpp.split(' ')[0]))].sort();
+  systems.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
 }
 
+/* ── MATCH VIEW ── */
 function selectMatch(id) {
   currentId = id;
   renderSidebar();
-  const m = allMatches.find(x => x.id === id);
+  const m = allMatches.find(x=>x.id===id);
   if (!m) return;
-
   document.getElementById('empty').style.display = 'none';
   const view = document.getElementById('match-view');
   view.style.display = 'block';
-
-  const rcClass = `badge-result-${m.result}`;
-  const stars = [1,2,3,4,5].map(i =>
-    `<span class="star${i <= (m.rating||0) ? ' on' : ''}">${i <= (m.rating||0) ? '★' : '☆'}</span>`
-  ).join('');
-
-  const animHtml = (m.animations||[]).map(a => `
+  const rcClass = `badge-${m.result}`;
+  const stars = [1,2,3,4,5].map(i=>`<span class="star${i<=(m.rating||0)?' on':''}">${i<=(m.rating||0)?'★':'☆'}</span>`).join('');
+  const animHtml = (m.animations||[]).map(a=>`
     <div class="anim-item">
-      <span class="anim-badge ${a.type === 'def' ? 'anim-def' : 'anim-off'}">${a.type === 'def' ? 'Déf' : 'Off'}</span>
-      <div>
-        <div class="anim-label">${a.label}</div>
-        <div class="anim-detail">${a.detail}</div>
-      </div>
-    </div>
-  `).join('');
-
-  const solHtml = (m.solutions||[]).map(s => `
-    <div class="solution-item">
-      <div class="solution-title">${s.title}</div>
-      <div class="solution-detail">${s.detail}</div>
-    </div>
-  `).join('');
+      <span class="anim-badge ${a.type==='def'?'anim-def':'anim-off'}">${a.type==='def'?'Déf':'Off'}</span>
+      <div><div class="anim-label">${a.label}</div><div class="anim-detail">${a.detail}</div></div>
+    </div>`).join('') || '<div style="color:var(--dim);font-size:13px;padding:8px 0">Aucune animation renseignée</div>';
+  const solHtml = (m.solutions||[]).map(s=>`
+    <div class="solution-item"><div class="solution-title">${s.title}</div><div class="solution-detail">${s.detail}</div></div>`).join('') || '<div style="color:var(--dim);font-size:13px">Aucune solution renseignée</div>';
+  const notes = (m.notes||'Aucune note pour ce match.').replace(/\\n/g,'\n');
 
   view.innerHTML = `
     <div class="match-header">
       <div style="display:flex;align-items:center;gap:1rem">
-        ${m.logo ? `<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">` : ''}
+        ${m.logo?`<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">`:''}
         <div>
           <div class="match-title">vs <span style="color:var(--gold)">${m.opponent}</span></div>
           <div class="match-badges">
@@ -825,70 +394,162 @@ function selectMatch(id) {
       </div>
       <div class="stars">${stars}</div>
     </div>
-
     <div class="tabs">
-      <div class="tab active" id="tab-analyse" onclick="switchTab('analyse')">Analyse</div>
-      <div class="tab" id="tab-solutions" onclick="switchTab('solutions')">Solutions</div>
-      <div class="tab" id="tab-notes" onclick="switchTab('notes')">Notes</div>
+      <div class="tab active" id="tab-analyse" onclick="switchTab('analyse','tab-')">Analyse</div>
+      <div class="tab" id="tab-solutions" onclick="switchTab('solutions','tab-')">Solutions</div>
+      <div class="tab" id="tab-notes" onclick="switchTab('notes','tab-')">Notes</div>
     </div>
-
     <div id="pane-analyse">
       <div class="grid2">
         <div class="card">
           <div class="card-title">Système adverse</div>
           <div class="formation-label" style="color:#7ab8f0">${m.systemOpp}</div>
-          <div class="pitch-wrap">${pitchSVG(m.systemOpp, '#4a90d9')}</div>
+          <div class="pitch-wrap">${pitchSVG(m.systemOpp,'#4a90d9')}</div>
         </div>
         <div class="card">
           <div class="card-title">Notre système</div>
           <div class="formation-label" style="color:var(--gold)">${m.systemUs.split(' ')[0]}</div>
-          <div class="pitch-wrap">${pitchSVG(m.systemUs, '#e8001c')}</div>
+          <div class="pitch-wrap">${pitchSVG(m.systemUs,'#e8001c')}</div>
         </div>
       </div>
       <div class="card">
         <div class="card-title">Animations rencontrées</div>
-        ${animHtml || '<div style="color:var(--white-dim);font-size:13px;padding:8px 0">Aucune animation renseignée</div>'}
+        ${animHtml}
       </div>
     </div>
-
-    <div id="pane-solutions" style="display:none">
-      ${solHtml || '<div class="card" style="color:var(--white-dim);font-size:13px">Aucune solution renseignée</div>'}
-    </div>
-
+    <div id="pane-solutions" style="display:none">${solHtml}</div>
     <div id="pane-notes" style="display:none">
-      <div class="notes-area">
+      <div class="card">
         <div class="card-title" style="margin-bottom:10px">Notes libres</div>
-        <div style="background:var(--white-faint);border:1px solid rgba(212,168,67,0.15);border-radius:8px;padding:12px;font-size:14px;line-height:1.7;color:var(--white);white-space:pre-line;min-height:80px">${(m.notes||'Aucune note pour ce match.').replace(/\\n/g,'\n')}</div>
-        <div style="font-size:12px;color:var(--white-dim);margin-top:8px">
-          Pour modifier, édite <strong style="color:var(--gold)">matchs.json</strong> dans ton repo GitHub.
+        <div class="notes-block">${notes}</div>
+        <div style="font-size:12px;color:var(--dim);margin-top:8px">Pour modifier, édite <strong style="color:var(--gold)">matchs.json</strong> sur GitHub.</div>
+      </div>
+    </div>`;
+}
+
+function switchTab(tab, prefix) {
+  const tabs = prefix==='tab-' ? ['analyse','solutions','notes'] : ['collectif','compo','saison'];
+  tabs.forEach(t => {
+    const el = document.getElementById(prefix+t);
+    if (el) el.className = 'tab' + (t===tab?(prefix==='atab-'?' active-gold':' active'):'');
+    const pane = document.getElementById('pane-'+t);
+    if (pane) pane.style.display = t===tab?'':'none';
+  });
+}
+
+/* ── ANALYSE VIEW ── */
+function selectAnalyse(id) {
+  currentId = id;
+  renderSidebar();
+  const m = allMatches.find(x=>x.id===id);
+  if (!m) return;
+  document.getElementById('empty').style.display = 'none';
+  const view = document.getElementById('match-view');
+  view.style.display = 'block';
+
+  const a = m.analyse || {};
+  const sections = [
+    { key: 'orgaOff', label: 'Organisation offensive' },
+    { key: 'orgaDef', label: 'Organisation défensive' },
+    { key: 'transitions', label: 'Transitions' },
+    { key: 'cpa', label: 'Coups de pied arrêtés' }
+  ];
+  const collectifHtml = sections.map(s => `
+    <div class="analyse-section">
+      <div class="analyse-section-title">${s.label}</div>
+      ${a[s.key] ? `<div class="analyse-text">${a[s.key].replace(/\\n/g,'\n')}</div>` : '<div class="analyse-empty">Non renseigné</div>'}
+    </div>`).join('');
+
+  const comp = m.composition || [];
+  const titulaires = comp.filter(j=>j.statut==='titulaire');
+  const banc = comp.filter(j=>j.statut==='banc');
+
+  const playerRow = j => `<tr>
+    <td><span class="num-badge">${j.numero}</span></td>
+    <td style="font-weight:500">${j.nom}</td>
+    <td><span class="poste-badge">${j.poste}</span></td>
+    <td><span class="${j.statut==='titulaire'?'statut-tit':'statut-banc'}">${j.statut==='titulaire'?'Titulaire':'Banc'}</span></td>
+  </tr>`;
+
+  const compoHtml = comp.length ? `
+    ${titulaires.length ? `<div class="compo-group-title">Titulaires (${titulaires.length})</div>
+    <table class="compo-table"><thead><tr><th>#</th><th>Nom</th><th>Poste</th><th>Statut</th></tr></thead>
+    <tbody>${titulaires.map(playerRow).join('')}</tbody></table>` : ''}
+    ${banc.length ? `<div class="compo-group-title">Banc (${banc.length})</div>
+    <table class="compo-table"><thead><tr><th>#</th><th>Nom</th><th>Poste</th><th>Statut</th></tr></thead>
+    <tbody>${banc.map(playerRow).join('')}</tbody></table>` : ''}
+  ` : '<div class="analyse-empty" style="padding:1rem 0">Aucune composition renseignée pour ce match.</div>';
+
+  const saisonHtml = buildSaisonHtml(m.opponent);
+
+  view.innerHTML = `
+    <div class="match-header">
+      <div style="display:flex;align-items:center;gap:1rem">
+        ${m.logo?`<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">`:''}
+        <div>
+          <div class="match-title" style="font-size:32px">Analyse — <span style="color:var(--gold)">${m.opponent}</span></div>
+          <div class="match-badges">
+            <span class="badge badge-sys">${m.systemOpp}</span>
+            <span class="badge badge-date">${m.date}</span>
+          </div>
         </div>
       </div>
     </div>
-  `;
+    <div class="tabs">
+      <div class="tab active-gold" id="atab-collectif" onclick="switchTab('collectif','atab-')">Collectif</div>
+      <div class="tab" id="atab-compo" onclick="switchTab('compo','atab-')">Feuille de match</div>
+      <div class="tab" id="atab-saison" onclick="switchTab('saison','atab-')">Saison</div>
+    </div>
+    <div id="pane-collectif"><div class="card">${collectifHtml}</div></div>
+    <div id="pane-compo" style="display:none"><div class="card">${compoHtml}</div></div>
+    <div id="pane-saison" style="display:none">${saisonHtml}</div>`;
 }
 
-function switchTab(tab) {
-  ['analyse','solutions','notes'].forEach(t => {
-    document.getElementById('tab-'+t).className = 'tab' + (t===tab?' active':'');
-    document.getElementById('pane-'+t).style.display = t===tab ? '' : 'none';
+function buildSaisonHtml(opponent) {
+  const matchsEquipe = allMatches.filter(m => m.opponent === opponent && m.composition && m.composition.length);
+  if (!matchsEquipe.length) return '<div class="card"><div class="analyse-empty" style="padding:1rem 0">Aucune composition renseignée pour cet adversaire.</div></div>';
+
+  const playerStats = {};
+  matchsEquipe.forEach(m => {
+    m.composition.forEach(j => {
+      const key = j.nom + '_' + j.numero;
+      if (!playerStats[key]) playerStats[key] = { nom: j.nom, numero: j.numero, tit: 0, joue: 0, postes: new Set() };
+      if (j.statut === 'titulaire') playerStats[key].tit++;
+      playerStats[key].joue++;
+      playerStats[key].postes.add(j.poste);
+    });
   });
+
+  const sorted = Object.values(playerStats).sort((a,b) => b.tit - a.tit || b.joue - a.joue);
+
+  const rows = sorted.map(p => `<tr>
+    <td><span class="num-badge">${p.numero}</span></td>
+    <td style="font-weight:500">${p.nom}</td>
+    <td><span class="stat-num">${p.tit}</span></td>
+    <td><span class="stat-num">${p.joue}</span></td>
+    <td><div class="postes-list">${[...p.postes].map(po=>`<span class="poste-badge">${po}</span>`).join('')}</div></td>
+  </tr>`).join('');
+
+  return `<div class="card">
+    <div class="card-title" style="margin-bottom:1rem">Stats saison — ${opponent} (${matchsEquipe.length} match${matchsEquipe.length>1?'s':''})</div>
+    <table class="saison-table">
+      <thead><tr><th>#</th><th>Joueur</th><th>Tit.</th><th>Joués</th><th>Postes</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
 }
 
 async function init() {
   try {
-    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    const res = await fetch('matchs.json?t=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
     allMatches = await res.json();
     filtered = [...allMatches];
 
     if (allMatches.length) {
-      const years = allMatches.map(m => {
-        const parts = m.date.split(' ');
-        return parts[parts.length - 1];
-      }).filter(Boolean);
-      const minY = Math.min(...years), maxY = Math.max(...years);
-      document.getElementById('season-label').textContent =
-        minY === maxY ? `Saison ${minY}` : `Saison ${minY}–${String(maxY).slice(-2)}`;
+      const years = allMatches.map(m => { const p=m.date.split(' '); return p[p.length-1]; }).filter(Boolean);
+      const minY=Math.min(...years), maxY=Math.max(...years);
+      document.getElementById('season-label').textContent = minY===maxY ? `Saison ${minY}` : `Saison ${minY}–${String(maxY).slice(-2)}`;
     }
 
     populateFilter();
@@ -897,24 +558,14 @@ async function init() {
     if (allMatches.length) selectMatch(allMatches[0].id);
   } catch(e) {
     document.getElementById('main').innerHTML = `
-      <div class="error-banner">
-        Impossible de charger <strong>matchs.json</strong>.<br>
-        Vérifie que le fichier est bien à la racine de ton repo GitHub.<br>
-        <small style="opacity:0.7">${e.message}</small>
-      </div>
-      <div style="font-size:13px;color:var(--white-dim);line-height:1.7">
-        Si tu ouvres ce fichier en local (hors GitHub Pages), le navigateur bloque les requêtes de fichiers locaux.<br>
-        Publie sur GitHub Pages et tout fonctionnera automatiquement.
-      </div>
-    `;
+      <div class="error-banner">Impossible de charger <strong>matchs.json</strong>.<br>Vérifie que le fichier est bien à la racine de ton repo GitHub.<br><small style="opacity:0.7">${e.message}</small></div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.7">Si tu ouvres ce fichier en local, publie sur GitHub Pages et tout fonctionnera.</div>`;
   } finally {
     const loader = document.getElementById('loading');
     loader.style.opacity = '0';
     setTimeout(() => loader.remove(), 400);
   }
 }
-
-init();
 </script>
 </body>
 </html>

@@ -27,11 +27,34 @@
       },
       {
         "title": "Structure avec ballon en 4-2-3-1",
-        "detail": "1 attaquant qui s'insére au milieu de terrain"
+        "detail": "1 attaquant qui s'insère au milieu de terrain"
       }
     ],
     "notes": "Difficulté pour ressortir les ballons face à leur pressing intense.\nQuasiment impossible de trouver des hommes libres à l'intérieur.\nBeaucoup de jeu long. Peu de maîtrise.",
-    "rating": 2
+    "rating": 2,
+    "analyse": {
+      "orgaOff": "Possession très propre depuis l'arrière. Le gardien Majecki participe activement à la relance. Les 3 milieux forment un triangle compact, la sentinelle sert de relais principal. Les ailiers rentrent à l'intérieur pour libérer les couloirs aux latéraux.",
+      "orgaDef": "Pressing très haut et coordonné dès la perte du ballon. Bloc haut en 4-3-3 défensif. Récupération rapide pour repartir en transition. Les 3 attaquants assurent le premier rideau de pression.",
+      "transitions": "Transitions offensives très rapides. Dès la récupération, jeu direct vers les attaquants en appel. Les milieux soutiennent immédiatement pour les combinaisons.",
+      "cpa": "Sur CFA offensifs : jeu court au sol, combinaisons sur les secondes balles. Sur CFA défensifs : zone mixte, le n°5 sort systématiquement sur le premier poteau."
+    },
+    "composition": [
+      { "nom": "Majecki", "numero": 1, "poste": "GB", "statut": "titulaire" },
+      { "nom": "Vanderson", "numero": 2, "poste": "LD", "statut": "titulaire" },
+      { "nom": "Kehrer", "numero": 5, "poste": "DC", "statut": "titulaire" },
+      { "nom": "Salisu", "numero": 22, "poste": "DC", "statut": "titulaire" },
+      { "nom": "Camara", "numero": 3, "poste": "LG", "statut": "titulaire" },
+      { "nom": "Zakaria", "numero": 8, "poste": "MIL", "statut": "titulaire" },
+      { "nom": "Matazo", "numero": 14, "poste": "MIL", "statut": "titulaire" },
+      { "nom": "Minamino", "numero": 18, "poste": "MIL", "statut": "titulaire" },
+      { "nom": "Ben Seghir", "numero": 26, "poste": "ATT", "statut": "titulaire" },
+      { "nom": "Embolo", "numero": 10, "poste": "ATT", "statut": "titulaire" },
+      { "nom": "Akliouche", "numero": 21, "poste": "ATT", "statut": "titulaire" },
+      { "nom": "Köhn", "numero": 16, "poste": "GB", "statut": "banc" },
+      { "nom": "Disasi", "numero": 4, "poste": "DC", "statut": "banc" },
+      { "nom": "Henrique", "numero": 6, "poste": "LG", "statut": "banc" },
+      { "nom": "Magassa", "numero": 25, "poste": "MIL", "statut": "banc" }
+    ]
   },
   {
     "id": 2,
@@ -64,8 +87,29 @@
         "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
       }
     ],
-    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
-    "rating": 3
+    "notes": "Manque de créativité face au bloc bas.\nTravailler les combinaisons courtes dans les petits espaces.",
+    "rating": 3,
+    "analyse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": ""
+    },
+    "composition": [
+      { "nom": "Martin", "numero": 1, "poste": "GB", "statut": "titulaire" },
+      { "nom": "Dupont", "numero": 2, "poste": "DC", "statut": "titulaire" },
+      { "nom": "Bernard", "numero": 4, "poste": "DC", "statut": "titulaire" },
+      { "nom": "Rossi", "numero": 5, "poste": "DC", "statut": "titulaire" },
+      { "nom": "Laurent", "numero": 3, "poste": "PIL", "statut": "titulaire" },
+      { "nom": "Garcia", "numero": 7, "poste": "PIL", "statut": "titulaire" },
+      { "nom": "Petit", "numero": 8, "poste": "MIL", "statut": "titulaire" },
+      { "nom": "Blanc", "numero": 6, "poste": "MIL", "statut": "titulaire" },
+      { "nom": "Moreau", "numero": 11, "poste": "PIL", "statut": "titulaire" },
+      { "nom": "Simon", "numero": 9, "poste": "PIL", "statut": "titulaire" },
+      { "nom": "Thomas", "numero": 10, "poste": "ATT", "statut": "titulaire" },
+      { "nom": "Leroy", "numero": 16, "poste": "GB", "statut": "banc" },
+      { "nom": "Michel", "numero": 14, "poste": "MIL", "statut": "banc" }
+    ]
   },
   {
     "id": 3,
@@ -92,14 +136,17 @@
       {
         "title": "Overloads côtés + permutations",
         "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      },
-      {
-        "title": "Jeu long sur le 2e rideau",
-        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
       }
     ],
-    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
-    "rating": 3
+    "notes": "Manque de créativité face au bloc bas.",
+    "rating": 3,
+    "analyse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": ""
+    },
+    "composition": []
   },
   {
     "id": 4,
@@ -126,14 +173,17 @@
       {
         "title": "Overloads côtés + permutations",
         "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      },
-      {
-        "title": "Jeu long sur le 2e rideau",
-        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
       }
     ],
-    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
-    "rating": 3
+    "notes": "Bonne maîtrise collective en 2e mi-temps.",
+    "rating": 4,
+    "analyse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": ""
+    },
+    "composition": []
   },
   {
     "id": 5,
@@ -149,24 +199,22 @@
         "type": "off",
         "label": "Jeu entre les lignes",
         "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
-      },
-      {
-        "type": "def",
-        "label": "Bloc bas compact",
-        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
       }
     ],
     "solutions": [
       {
-        "title": "Overloads côtés + permutations",
-        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      },
-      {
         "title": "Jeu long sur le 2e rideau",
-        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
+        "detail": "Utiliser le pivot pour fixer la ligne défensive."
       }
     ],
-    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
-    "rating": 3
+    "notes": "Manque de créativité face au bloc bas.",
+    "rating": 3,
+    "analyse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": ""
+    },
+    "composition": []
   }
 ]
