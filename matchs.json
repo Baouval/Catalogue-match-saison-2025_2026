@@ -3,151 +3,140 @@
     "id": 1,
     "date": "17 jan. 2026",
     "opponent": "AS Monaco",
-    "equipeId": "as-monaco",
-    "phase": "aller",
     "logo": "logos/ASM.png",
+    "competition": "Championnat",
     "score": "1 - 1",
     "result": "draw",
     "systemOpp": "4-3-3",
     "systemUs": "4-4-2",
-    "animations": [
-      { "type": "off", "label": "Pressing haut tout terrain", "detail": "Excentré gauche qui déclenche sur notre central gauche et latéral gauche qui avance sur notre latéral droit" },
-      { "type": "def", "label": "Gestion de profondeur et du milieu à 3", "detail": "3 attaquants très haut intérieurs et 3 milieux qui bougent beaucoup" }
-    ],
-    "solutions": [
-      { "title": "Fermeture sentinelle", "detail": "2 attaquants qui gèrent la sentinelle à tour de rôle" },
-      { "title": "Structure avec ballon en 4-2-3-1", "detail": "1 attaquant qui s'insère au milieu de terrain" }
-    ],
-    "notes": "Difficulté pour ressortir les ballons face à leur pressing intense.\nQuasiment impossible de trouver des hommes libres à l'intérieur.\nBeaucoup de jeu long. Peu de maîtrise.",
-    "rating": 2,
-    "analyse": {
-      "orgaOff": "Possession très propre depuis l'arrière. Le gardien Majecki participe activement à la relance. Les 3 milieux forment un triangle compact, la sentinelle sert de relais principal. Les ailiers rentrent à l'intérieur pour libérer les couloirs aux latéraux.",
-      "orgaDef": "Pressing très haut et coordonné dès la perte du ballon. Bloc haut en 4-3-3 défensif. Récupération rapide pour repartir en transition. Les 3 attaquants assurent le premier rideau de pression.",
-      "transitions": "Transitions offensives très rapides. Dès la récupération, jeu direct vers les attaquants en appel. Les milieux soutiennent immédiatement pour les combinaisons.",
-      "cpa": "Sur CFA offensifs : jeu court au sol, combinaisons sur les secondes balles. Sur CFA défensifs : zone mixte, le n°5 sort systématiquement sur le premier poteau."
+    "analyseAdverse": {
+      "orgaOff": "Possession très propre depuis l'arrière. Gardien Majecki participe à la relance. Les ailiers rentrent à l'intérieur pour libérer les couloirs aux latéraux.",
+      "orgaDef": "Pressing très haut et coordonné dès la perte du ballon. Bloc haut en 4-3-3 défensif.",
+      "transitions": "Transitions offensives très rapides. Jeu direct vers les attaquants en appel dès la récupération.",
+      "cpa": "Sur CFA offensifs : jeu court au sol, combinaisons sur secondes balles. Sur CFA défensifs : zone mixte, n°5 sort sur premier poteau.",
+      "pointsAttention": "Akliouche très dangereux dans le dos de la défense. Embolo pivot puissant, difficile à contenir."
     },
-    "composition": [
-      { "nom": "Majecki", "numero": 1, "poste": "GB", "statut": "titulaire" },
-      { "nom": "Vanderson", "numero": 2, "poste": "LD", "statut": "titulaire" },
-      { "nom": "Kehrer", "numero": 5, "poste": "DC", "statut": "titulaire" },
-      { "nom": "Salisu", "numero": 22, "poste": "DC", "statut": "titulaire" },
-      { "nom": "Camara", "numero": 3, "poste": "LG", "statut": "titulaire" },
-      { "nom": "Zakaria", "numero": 8, "poste": "MIL", "statut": "titulaire" },
-      { "nom": "Matazo", "numero": 14, "poste": "MIL", "statut": "titulaire" },
-      { "nom": "Minamino", "numero": 18, "poste": "MIL", "statut": "titulaire" },
-      { "nom": "Ben Seghir", "numero": 26, "poste": "ATT", "statut": "titulaire" },
-      { "nom": "Embolo", "numero": 10, "poste": "ATT", "statut": "titulaire" },
-      { "nom": "Akliouche", "numero": 21, "poste": "ATT", "statut": "titulaire" },
-      { "nom": "Köhn", "numero": 16, "poste": "GB", "statut": "banc" },
-      { "nom": "Disasi", "numero": 4, "poste": "DC", "statut": "banc" },
-      { "nom": "Henrique", "numero": 6, "poste": "LG", "statut": "banc" },
-      { "nom": "Magassa", "numero": 25, "poste": "MIL", "statut": "banc" }
-    ]
+    "planJeu": {
+      "contenu": "Bloc médian en 4-4-2 compact. Fermer la sentinelle à deux attaquants à tour de rôle. Jeu long sur les appels dans le dos de leur défense haute. Exploiter les transitions rapides sur récupération.",
+      "consignes": "Ne pas presser individuellement. Rester groupés. Sorties de balle propres vers les côtés."
+    },
+    "pendantMatch": {
+      "observations": "Pressing adverse très intense, difficile de ressortir proprement. Milieu adverse très mobile.",
+      "ajustements": "Passage en 4-2-3-1 à la 55e pour mieux couvrir la sentinelle. Repositionnement du n°10 plus bas.",
+      "evenements": "But adverse 23e sur transition rapide. Égalisation 67e sur corner."
+    },
+    "bilan": {
+      "positifs": "Bonne tenue défensive en 2e mi-temps. Réaction après le but encaissé.",
+      "aCorreger": "Sorties de balle sous pression à retravailler. Couverture sur les transitions adverses.",
+      "note": 3
+    },
+    "feuilleAdverse": {
+      "systeme": "4-3-3",
+      "joueurs": [
+        { "nom": "Majecki", "numero": 1 },
+        { "nom": "Vanderson", "numero": 2 },
+        { "nom": "Kehrer", "numero": 5 },
+        { "nom": "Salisu", "numero": 22 },
+        { "nom": "Camara", "numero": 3 },
+        { "nom": "Zakaria", "numero": 8 },
+        { "nom": "Matazo", "numero": 14 },
+        { "nom": "Minamino", "numero": 18 },
+        { "nom": "Ben Seghir", "numero": 26 },
+        { "nom": "Embolo", "numero": 10 },
+        { "nom": "Akliouche", "numero": 21 }
+      ]
+    },
+    "feuilleNous": {
+      "systeme": "4-4-2",
+      "joueurs": [
+        { "nom": "Dupont", "numero": 1 },
+        { "nom": "Martin", "numero": 2 },
+        { "nom": "Bernard", "numero": 5 },
+        { "nom": "Rossi", "numero": 4 },
+        { "nom": "Garcia", "numero": 3 },
+        { "nom": "Petit", "numero": 7 },
+        { "nom": "Blanc", "numero": 6 },
+        { "nom": "Simon", "numero": 8 },
+        { "nom": "Laurent", "numero": 11 },
+        { "nom": "Thomas", "numero": 9 },
+        { "nom": "Moreau", "numero": 10 }
+      ]
+    }
   },
   {
     "id": 2,
     "date": "24 jan. 2026",
     "opponent": "Cavigal Nice",
-    "equipeId": "cavigal-nice",
-    "phase": "aller",
     "logo": "logos/CAVIGAL.png",
+    "competition": "Coupe",
     "score": "0 - 1",
     "result": "loss",
     "systemOpp": "5-4-1",
     "systemUs": "4-4-2",
-    "animations": [
-      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
-      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
-    ],
-    "solutions": [
-      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." },
-      { "title": "Jeu long sur le 2e rideau", "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos." }
-    ],
-    "notes": "Manque de créativité face au bloc bas.\nTravailler les combinaisons courtes dans les petits espaces.",
-    "rating": 3,
-    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
-    "composition": [
-      { "nom": "Martin", "numero": 1, "poste": "GB", "statut": "titulaire" },
-      { "nom": "Dupont", "numero": 2, "poste": "DC", "statut": "titulaire" },
-      { "nom": "Bernard", "numero": 4, "poste": "DC", "statut": "titulaire" },
-      { "nom": "Rossi", "numero": 5, "poste": "DC", "statut": "titulaire" },
-      { "nom": "Laurent", "numero": 3, "poste": "PIL", "statut": "titulaire" },
-      { "nom": "Garcia", "numero": 7, "poste": "PIL", "statut": "titulaire" },
-      { "nom": "Petit", "numero": 8, "poste": "MIL", "statut": "titulaire" },
-      { "nom": "Blanc", "numero": 6, "poste": "MIL", "statut": "titulaire" },
-      { "nom": "Moreau", "numero": 11, "poste": "PIL", "statut": "titulaire" },
-      { "nom": "Simon", "numero": 9, "poste": "PIL", "statut": "titulaire" },
-      { "nom": "Thomas", "numero": 10, "poste": "ATT", "statut": "titulaire" },
-      { "nom": "Leroy", "numero": 16, "poste": "GB", "statut": "banc" },
-      { "nom": "Michel", "numero": 14, "poste": "MIL", "statut": "banc" }
-    ]
+    "analyseAdverse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": "",
+      "pointsAttention": ""
+    },
+    "planJeu": { "contenu": "", "consignes": "" },
+    "pendantMatch": { "observations": "", "ajustements": "", "evenements": "" },
+    "bilan": { "positifs": "", "aCorreger": "", "note": 2 },
+    "feuilleAdverse": {
+      "systeme": "5-4-1",
+      "joueurs": [
+        { "nom": "Martin", "numero": 1 },
+        { "nom": "Dupont", "numero": 2 },
+        { "nom": "Bernard", "numero": 4 },
+        { "nom": "Rossi", "numero": 5 },
+        { "nom": "Laurent", "numero": 3 },
+        { "nom": "Garcia", "numero": 6 },
+        { "nom": "Petit", "numero": 8 },
+        { "nom": "Blanc", "numero": 7 },
+        { "nom": "Simon", "numero": 11 },
+        { "nom": "Moreau", "numero": 9 },
+        { "nom": "Thomas", "numero": 10 }
+      ]
+    },
+    "feuilleNous": {
+      "systeme": "4-4-2",
+      "joueurs": [
+        { "nom": "Köhn", "numero": 1 },
+        { "nom": "Draxler", "numero": 2 },
+        { "nom": "Silva", "numero": 5 },
+        { "nom": "Mendes", "numero": 4 },
+        { "nom": "Diop", "numero": 3 },
+        { "nom": "Camara", "numero": 8 },
+        { "nom": "N'Doye", "numero": 6 },
+        { "nom": "Traoré", "numero": 7 },
+        { "nom": "Koné", "numero": 11 },
+        { "nom": "Mbaye", "numero": 9 },
+        { "nom": "Sylla", "numero": 10 }
+      ]
+    }
   },
   {
     "id": 3,
-    "date": "26 oct. 2024",
-    "opponent": "Air Bel",
-    "equipeId": "air-bel",
-    "phase": "aller",
-    "logo": "logos/AIRBEL.png",
-    "score": "1 - 0",
-    "result": "loss",
-    "systemOpp": "4-1-4-1",
-    "systemUs": "4-4-2",
-    "animations": [
-      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
-      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
-    ],
-    "solutions": [
-      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." }
-    ],
-    "notes": "Manque de créativité face au bloc bas.",
-    "rating": 3,
-    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
-    "composition": []
-  },
-  {
-    "id": 4,
-    "date": "15 fev. 2026",
-    "opponent": "Montpellier HSC",
-    "equipeId": "montpellier-hsc",
-    "phase": "aller",
-    "logo": "logos/MHSC.png",
-    "score": "2 - 1",
-    "result": "win",
-    "systemOpp": "4-1-4-1",
-    "systemUs": "4-4-2",
-    "animations": [
-      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
-      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
-    ],
-    "solutions": [
-      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." }
-    ],
-    "notes": "Bonne maîtrise collective en 2e mi-temps.",
-    "rating": 4,
-    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
-    "composition": []
-  },
-  {
-    "id": 5,
     "date": "07 mar. 2026",
     "opponent": "Balma SC",
-    "equipeId": "balma-sc",
-    "phase": "aller",
     "logo": "logos/BALMA.png",
+    "competition": "U19",
     "score": "2 - 1",
     "result": "loss",
     "systemOpp": "4-1-4-1",
-    "systemUs": "4-4-2",
-    "animations": [
-      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" }
-    ],
-    "solutions": [
-      { "title": "Jeu long sur le 2e rideau", "detail": "Utiliser le pivot pour fixer la ligne défensive." }
-    ],
-    "notes": "Manque de créativité face au bloc bas.",
-    "rating": 3,
-    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
-    "composition": []
+    "systemUs": "4-3-3",
+    "analyseAdverse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": "",
+      "pointsAttention": ""
+    },
+    "planJeu": { "contenu": "", "consignes": "" },
+    "pendantMatch": { "observations": "", "ajustements": "", "evenements": "" },
+    "bilan": { "positifs": "", "aCorreger": "", "note": 3 },
+    "feuilleAdverse": { "systeme": "4-1-4-1", "joueurs": [] },
+    "feuilleNous": { "systeme": "4-3-3", "joueurs": [] }
   }
 ]
