@@ -1,0 +1,14 @@
+[
+  { "id": "as-monaco", "nom": "AS Monaco", "logo": "logos/ASM.png" },
+  { "id": "cavigal-nice", "nom": "Cavigal Nice", "logo": "logos/CAVIGAL.png" },
+  { "id": "air-bel", "nom": "Air Bel", "logo": "logos/AIRBEL.png" },
+  { "id": "montpellier-hsc", "nom": "Montpellier HSC", "logo": "logos/MHSC.png" },
+  { "id": "balma-sc", "nom": "Balma SC", "logo": "logos/BALMA.png" },
+  { "id": "olympique-marseille", "nom": "Olympique de Marseille", "logo": "logos/OM.png" },
+  { "id": "stade-rennais", "nom": "Stade Rennais", "logo": "logos/RENNES.png" },
+  { "id": "rc-lens", "nom": "RC Lens", "logo": "logos/LENS.png" },
+  { "id": "toulouse-fc", "nom": "Toulouse FC", "logo": "logos/TFC.png" },
+  { "id": "girondins-bordeaux", "nom": "Girondins de Bordeaux", "logo": "logos/BORDEAUX.png" },
+  { "id": "fc-nantes", "nom": "FC Nantes", "logo": "logos/NANTES.png" },
+  { "id": "racing-club-strasbourg", "nom": "RC Strasbourg", "logo": "logos/STRASBOURG.png" }
+]

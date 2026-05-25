@@ -3,32 +3,20 @@
     "id": 1,
     "date": "17 jan. 2026",
     "opponent": "AS Monaco",
+    "equipeId": "as-monaco",
+    "phase": "aller",
     "logo": "logos/ASM.png",
     "score": "1 - 1",
     "result": "draw",
     "systemOpp": "4-3-3",
     "systemUs": "4-4-2",
     "animations": [
-      {
-        "type": "off",
-        "label": "Pressing haut tout terrain",
-        "detail": "Excentré gauche qui déclenche sur notre central gauche et latéral gauche qui avance sur notre latéral droit"
-      },
-      {
-        "type": "def",
-        "label": "Gestion de profondeur et du milieu à 3",
-        "detail": "3 attaquants très haut intérieurs et 3 milieux qui bougent beaucoup"
-      }
+      { "type": "off", "label": "Pressing haut tout terrain", "detail": "Excentré gauche qui déclenche sur notre central gauche et latéral gauche qui avance sur notre latéral droit" },
+      { "type": "def", "label": "Gestion de profondeur et du milieu à 3", "detail": "3 attaquants très haut intérieurs et 3 milieux qui bougent beaucoup" }
     ],
     "solutions": [
-      {
-        "title": "Fermeture sentinelle",
-        "detail": "2 attaquants qui gèrent la sentinelle à tour de rôle"
-      },
-      {
-        "title": "Structure avec ballon en 4-2-3-1",
-        "detail": "1 attaquant qui s'insère au milieu de terrain"
-      }
+      { "title": "Fermeture sentinelle", "detail": "2 attaquants qui gèrent la sentinelle à tour de rôle" },
+      { "title": "Structure avec ballon en 4-2-3-1", "detail": "1 attaquant qui s'insère au milieu de terrain" }
     ],
     "notes": "Difficulté pour ressortir les ballons face à leur pressing intense.\nQuasiment impossible de trouver des hommes libres à l'intérieur.\nBeaucoup de jeu long. Peu de maîtrise.",
     "rating": 2,
@@ -60,41 +48,24 @@
     "id": 2,
     "date": "24 jan. 2026",
     "opponent": "Cavigal Nice",
+    "equipeId": "cavigal-nice",
+    "phase": "aller",
     "logo": "logos/CAVIGAL.png",
     "score": "0 - 1",
     "result": "loss",
     "systemOpp": "5-4-1",
     "systemUs": "4-4-2",
     "animations": [
-      {
-        "type": "off",
-        "label": "Jeu entre les lignes",
-        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
-      },
-      {
-        "type": "def",
-        "label": "Bloc bas compact",
-        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
-      }
+      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
+      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
     ],
     "solutions": [
-      {
-        "title": "Overloads côtés + permutations",
-        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      },
-      {
-        "title": "Jeu long sur le 2e rideau",
-        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
-      }
+      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." },
+      { "title": "Jeu long sur le 2e rideau", "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos." }
     ],
     "notes": "Manque de créativité face au bloc bas.\nTravailler les combinaisons courtes dans les petits espaces.",
     "rating": 3,
-    "analyse": {
-      "orgaOff": "",
-      "orgaDef": "",
-      "transitions": "",
-      "cpa": ""
-    },
+    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
     "composition": [
       { "nom": "Martin", "numero": 1, "poste": "GB", "statut": "titulaire" },
       { "nom": "Dupont", "numero": 2, "poste": "DC", "statut": "titulaire" },
@@ -115,106 +86,68 @@
     "id": 3,
     "date": "26 oct. 2024",
     "opponent": "Air Bel",
+    "equipeId": "air-bel",
+    "phase": "aller",
     "logo": "logos/AIRBEL.png",
     "score": "1 - 0",
     "result": "loss",
     "systemOpp": "4-1-4-1",
     "systemUs": "4-4-2",
     "animations": [
-      {
-        "type": "off",
-        "label": "Jeu entre les lignes",
-        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
-      },
-      {
-        "type": "def",
-        "label": "Bloc bas compact",
-        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
-      }
+      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
+      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
     ],
     "solutions": [
-      {
-        "title": "Overloads côtés + permutations",
-        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      }
+      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." }
     ],
     "notes": "Manque de créativité face au bloc bas.",
     "rating": 3,
-    "analyse": {
-      "orgaOff": "",
-      "orgaDef": "",
-      "transitions": "",
-      "cpa": ""
-    },
+    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
     "composition": []
   },
   {
     "id": 4,
     "date": "15 fev. 2026",
     "opponent": "Montpellier HSC",
+    "equipeId": "montpellier-hsc",
+    "phase": "aller",
     "logo": "logos/MHSC.png",
     "score": "2 - 1",
     "result": "win",
     "systemOpp": "4-1-4-1",
     "systemUs": "4-4-2",
     "animations": [
-      {
-        "type": "off",
-        "label": "Jeu entre les lignes",
-        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
-      },
-      {
-        "type": "def",
-        "label": "Bloc bas compact",
-        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
-      }
+      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" },
+      { "type": "def", "label": "Bloc bas compact", "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces" }
     ],
     "solutions": [
-      {
-        "title": "Overloads côtés + permutations",
-        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
-      }
+      { "title": "Overloads côtés + permutations", "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre." }
     ],
     "notes": "Bonne maîtrise collective en 2e mi-temps.",
     "rating": 4,
-    "analyse": {
-      "orgaOff": "",
-      "orgaDef": "",
-      "transitions": "",
-      "cpa": ""
-    },
+    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
     "composition": []
   },
   {
     "id": 5,
     "date": "07 mar. 2026",
     "opponent": "Balma SC",
+    "equipeId": "balma-sc",
+    "phase": "aller",
     "logo": "logos/BALMA.png",
     "score": "2 - 1",
     "result": "loss",
     "systemOpp": "4-1-4-1",
     "systemUs": "4-4-2",
     "animations": [
-      {
-        "type": "off",
-        "label": "Jeu entre les lignes",
-        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
-      }
+      { "type": "off", "label": "Jeu entre les lignes", "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux" }
     ],
     "solutions": [
-      {
-        "title": "Jeu long sur le 2e rideau",
-        "detail": "Utiliser le pivot pour fixer la ligne défensive."
-      }
+      { "title": "Jeu long sur le 2e rideau", "detail": "Utiliser le pivot pour fixer la ligne défensive." }
     ],
     "notes": "Manque de créativité face au bloc bas.",
     "rating": 3,
-    "analyse": {
-      "orgaOff": "",
-      "orgaDef": "",
-      "transitions": "",
-      "cpa": ""
-    },
+    "analyse": { "orgaOff": "", "orgaDef": "", "transitions": "", "cpa": "" },
     "composition": []
   }
 ]

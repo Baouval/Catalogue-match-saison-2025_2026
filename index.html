@@ -8,62 +8,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --dark: #0e0e0e;
-  --mid: #1a1a1a;
-  --card: #212121;
-  --accent: #e8001c;
-  --gold: #d4a843;
-  --white: #f5f2eb;
-  --dim: rgba(245,242,235,0.55);
-  --faint: rgba(245,242,235,0.08);
-  --radius: 10px;
-  --sw: 280px;
+  --dark: #0e0e0e; --mid: #1a1a1a; --card: #212121;
+  --accent: #e8001c; --gold: #d4a843;
+  --white: #f5f2eb; --dim: rgba(245,242,235,0.55); --faint: rgba(245,242,235,0.08);
+  --radius: 10px; --sw: 280px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); min-height: 100vh; display: flex; overflow: hidden; }
 
-/* SIDEBAR */
 #sidebar { width: var(--sw); min-width: var(--sw); height: 100vh; background: var(--mid); border-right: 1px solid rgba(232,0,28,0.15); display: flex; flex-direction: column; overflow: hidden; }
 .sb-top { padding: 1.25rem 1rem 0.75rem; border-bottom: 1px solid var(--faint); }
 .app-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.04em; color: var(--gold); line-height: 1; }
 .app-sub { font-size: 10px; color: var(--dim); margin-top: 3px; letter-spacing: 0.06em; text-transform: uppercase; }
 
-/* MODE TABS */
 .mode-tabs { display: flex; border-bottom: 1px solid var(--faint); }
 .mode-tab { flex: 1; padding: 10px; font-size: 12px; font-weight: 500; text-align: center; cursor: pointer; color: var(--dim); border-bottom: 2px solid transparent; margin-bottom: -1px; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.15s, border-color 0.15s; }
 .mode-tab:hover { color: var(--white); }
 .mode-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-/* FILTER */
 .filter-bar { padding: 0.6rem 1rem; border-bottom: 1px solid var(--faint); }
 .filter-bar label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); display: block; margin-bottom: 4px; }
 .filter-bar select { width: 100%; background: var(--faint); border: 1px solid rgba(232,0,28,0.2); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 12px; padding: 6px 10px; border-radius: 6px; appearance: none; cursor: pointer; outline: none; }
 .filter-bar select option { background: var(--mid); color: var(--white); }
 
-/* MATCH LIST */
 .match-list { flex: 1; overflow-y: auto; padding: 0.4rem 0; scrollbar-width: thin; scrollbar-color: var(--faint) transparent; }
 .list-section { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); padding: 0.6rem 1rem 0.2rem; }
-.match-item { padding: 9px 1rem; cursor: pointer; border-left: 3px solid transparent; transition: background 0.15s, border-color 0.15s; }
+.match-item { padding: 9px 1rem; cursor: pointer; border-left: 3px solid transparent; transition: background 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 8px; }
 .match-item:hover { background: var(--faint); }
 .match-item.active { background: rgba(232,0,28,0.08); border-left-color: var(--accent); }
-.match-item.active-analyse { background: rgba(212,168,67,0.08); border-left-color: var(--gold); }
+.match-item.active-gold { background: rgba(212,168,67,0.08); border-left-color: var(--gold); }
+.mi-logo { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; opacity: 0.85; }
+.mi-logo-placeholder { width: 24px; height: 24px; flex-shrink: 0; background: var(--faint); border-radius: 4px; }
+.mi-info { flex: 1; min-width: 0; }
 .mi-date { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.04em; }
-.mi-name { font-size: 13px; font-weight: 500; color: var(--white); margin: 2px 0; display: flex; align-items: center; gap: 6px; }
-.rdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.mi-name { font-size: 13px; font-weight: 500; color: var(--white); margin: 1px 0; display: flex; align-items: center; gap: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .mi-sys { font-size: 11px; color: var(--dim); }
+.phase-dot { font-size: 9px; padding: 1px 5px; border-radius: 3px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; flex-shrink: 0; }
+.phase-aller { background: rgba(212,168,67,0.15); color: var(--gold); }
+.phase-retour { background: rgba(50,130,230,0.15); color: #7ab8f0; }
 
-/* FOOTER */
 .sb-footer { padding: 0.75rem 1rem; border-top: 1px solid var(--faint); }
 .stats-row { display: flex; gap: 6px; margin-bottom: 8px; }
 .stat-pill { flex: 1; background: var(--faint); border-radius: 6px; padding: 5px 6px; text-align: center; }
 .stat-pill .val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; line-height: 1; }
 .stat-pill .lbl { font-size: 9px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
 
-/* MAIN */
 #main { flex: 1; height: 100vh; overflow-y: auto; padding: 2rem; scrollbar-width: thin; scrollbar-color: var(--faint) transparent; }
 .empty-state { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--dim); gap: 1rem; font-size: 14px; }
 
-/* MATCH HEADER */
 .match-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
 .match-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.03em; color: var(--white); line-height: 1; }
 .match-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
@@ -73,18 +66,26 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 .badge-loss { background: rgba(232,64,64,0.15); color: #f07070; border: 1px solid rgba(232,64,64,0.3); }
 .badge-sys { background: rgba(212,168,67,0.12); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
 .badge-date { background: var(--faint); color: var(--dim); border: 1px solid transparent; }
+.badge-aller { background: rgba(212,168,67,0.12); color: var(--gold); border: 1px solid rgba(212,168,67,0.25); }
+.badge-retour { background: rgba(50,130,230,0.12); color: #7ab8f0; border: 1px solid rgba(50,130,230,0.25); }
 .stars { display: flex; gap: 3px; font-size: 16px; }
 .star { color: var(--faint); cursor: pointer; transition: color 0.1s; }
 .star.on { color: var(--gold); }
 
-/* TABS */
-.tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
+.tabs { display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
 .tab { padding: 8px 18px; font-size: 13px; font-weight: 500; color: var(--dim); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; letter-spacing: 0.03em; transition: color 0.15s, border-color 0.15s; }
 .tab:hover { color: var(--white); }
 .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 .tab.active-gold { color: var(--gold); border-bottom-color: var(--gold); }
+.tab.active-blue { color: #7ab8f0; border-bottom-color: #7ab8f0; }
 
-/* GRID / CARDS */
+/* Phase tabs (Aller/Retour) */
+.phase-tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; }
+.phase-tab { padding: 7px 20px; font-size: 13px; font-weight: 500; border-radius: 20px; border: 1px solid var(--faint); background: transparent; color: var(--dim); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+.phase-tab:hover { color: var(--white); }
+.phase-tab.active-aller { background: rgba(212,168,67,0.12); color: var(--gold); border-color: rgba(212,168,67,0.35); }
+.phase-tab.active-retour { background: rgba(50,130,230,0.12); color: #7ab8f0; border-color: rgba(50,130,230,0.35); }
+
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .card { background: var(--card); border: 1px solid var(--faint); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
 .card:last-child { margin-bottom: 0; }
@@ -92,7 +93,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 .formation-label { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.05em; margin-bottom: 10px; }
 .pitch-wrap { display: flex; justify-content: center; }
 
-/* ANIMATIONS */
 .anim-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--faint); align-items: flex-start; }
 .anim-item:last-child { border-bottom: none; }
 .anim-badge { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -101,39 +101,29 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 .anim-label { font-size: 13px; font-weight: 500; color: var(--white); }
 .anim-detail { font-size: 12px; color: var(--dim); margin-top: 2px; line-height: 1.5; }
 
-/* SOLUTIONS */
 .solution-item { background: rgba(212,168,67,0.06); border: 1px solid rgba(212,168,67,0.2); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; }
 .solution-title { font-size: 14px; font-weight: 500; color: var(--gold); margin-bottom: 4px; }
 .solution-detail { font-size: 13px; color: var(--dim); line-height: 1.55; }
 
-/* NOTES */
 .notes-block { background: var(--faint); border: 1px solid rgba(212,168,67,0.15); border-radius: 8px; padding: 12px; font-size: 14px; line-height: 1.7; color: var(--white); white-space: pre-line; min-height: 80px; }
 
-/* ANALYSE SECTIONS */
 .analyse-section { margin-bottom: 1rem; }
 .analyse-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
 .analyse-section-title::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--gold); border-radius: 2px; }
 .analyse-text { background: var(--faint); border: 1px solid var(--faint); border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.7; color: var(--white); white-space: pre-line; min-height: 70px; }
 .analyse-empty { color: var(--dim); font-style: italic; font-size: 13px; padding: 8px 0; }
 
-/* COMPOSITION TABLE */
 .compo-group-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); margin: 1rem 0 0.5rem; font-weight: 500; }
 .compo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .compo-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--faint); font-weight: 500; }
 .compo-table td { padding: 8px 10px; border-bottom: 1px solid var(--faint); color: var(--white); }
 .compo-table tr:last-child td { border-bottom: none; }
 .compo-table tr:hover td { background: var(--faint); }
-.num-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--faint); border-radius: 4px; font-size: 12px; font-weight: 500; color: var(--white); }
+.num-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--faint); border-radius: 4px; font-size: 12px; font-weight: 500; }
 .poste-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; background: rgba(232,0,28,0.12); color: #ff6070; border: 1px solid rgba(232,0,28,0.2); }
 .statut-tit { font-size: 11px; color: #6ee87a; }
 .statut-banc { font-size: 11px; color: var(--dim); }
 
-/* SAISON STATS */
-.saison-team-select { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.team-btn { padding: 6px 14px; font-size: 12px; border-radius: 20px; border: 1px solid var(--faint); background: transparent; color: var(--dim); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
-.team-btn:hover { color: var(--white); border-color: rgba(212,168,67,0.4); }
-.team-btn.active { background: rgba(212,168,67,0.12); color: var(--gold); border-color: rgba(212,168,67,0.4); }
-.team-btn img { width: 16px; height: 16px; object-fit: contain; }
 .saison-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .saison-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); padding: 6px 10px; border-bottom: 1px solid var(--faint); font-weight: 500; }
 .saison-table td { padding: 9px 10px; border-bottom: 1px solid var(--faint); color: var(--white); }
@@ -142,7 +132,17 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--gold); }
 .postes-list { display: flex; gap: 4px; flex-wrap: wrap; }
 
-/* LOGIN */
+/* Equipe list (mode Analyses) */
+.equipe-item { padding: 9px 1rem; cursor: pointer; border-left: 3px solid transparent; transition: background 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 8px; }
+.equipe-item:hover { background: var(--faint); }
+.equipe-item.active { background: rgba(212,168,67,0.08); border-left-color: var(--gold); }
+.equipe-logo { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
+.equipe-nom { font-size: 13px; font-weight: 500; color: var(--white); flex: 1; }
+.equipe-count { font-size: 11px; color: var(--dim); }
+
+/* Pas de match joué */
+.no-match-notice { background: var(--faint); border: 1px solid var(--faint); border-radius: 8px; padding: 16px; font-size: 13px; color: var(--dim); font-style: italic; text-align: center; margin-top: 0.5rem; }
+
 #login-screen { position: fixed; inset: 0; background: var(--dark); display: flex; align-items: center; justify-content: center; z-index: 200; }
 .login-box { background: var(--mid); border: 1px solid rgba(212,168,67,0.25); border-radius: 14px; padding: 2.5rem 2rem; width: 320px; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
 .login-logo { width: 80px; height: 80px; object-fit: contain; }
@@ -156,14 +156,12 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
 .shake { animation: shake 0.35s ease; }
 
-/* LOADING */
 #loading { position: fixed; inset: 0; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 1rem; transition: opacity 0.4s; }
 .load-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); letter-spacing: 0.05em; }
 .load-sub { font-size: 13px; color: var(--dim); }
 .load-bar-wrap { width: 200px; height: 3px; background: var(--faint); border-radius: 2px; overflow: hidden; }
 .load-bar { height: 100%; background: var(--accent); border-radius: 2px; animation: loadbar 1.2s ease-in-out infinite; }
 @keyframes loadbar { 0%{width:0%;margin-left:0} 50%{width:60%} 100%{width:0%;margin-left:100%} }
-
 .error-banner { background: rgba(232,64,64,0.15); border: 1px solid rgba(232,64,64,0.3); color: #f07070; border-radius: 8px; padding: 12px 16px; font-size: 13px; margin-bottom: 1rem; }
 
 @media (max-width: 700px) {
@@ -190,7 +188,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 
 <div id="loading">
   <div class="load-title">Catalogue Tactique</div>
-  <div class="load-sub">Chargement des matchs…</div>
+  <div class="load-sub">Chargement des données…</div>
   <div class="load-bar-wrap"><div class="load-bar"></div></div>
 </div>
 
@@ -203,7 +201,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
     <div class="mode-tab active" id="mode-matchs" onclick="setMode('matchs')">Matchs</div>
     <div class="mode-tab" id="mode-analyses" onclick="setMode('analyses')">Analyses</div>
   </div>
-  <div class="filter-bar" id="filter-wrap">
+  <div id="filter-wrap" class="filter-bar">
     <label>Filtrer par système adverse</label>
     <select id="filter-sys" onchange="applyFilter()">
       <option value="">Tous les systèmes</option>
@@ -213,7 +211,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
   <div class="sb-footer">
     <div class="stats-row" id="stats-row"></div>
     <div style="font-size:11px;color:var(--dim);line-height:1.5">
-      Pour ajouter un match, édite <strong style="color:var(--gold)">matchs.json</strong> sur GitHub.
+      Édite <strong style="color:var(--gold)">matchs.json</strong> et <strong style="color:var(--gold)">equipes.json</strong> sur GitHub.
     </div>
   </div>
 </div>
@@ -223,15 +221,14 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
     <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3">
       <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M2 12h20M12 2c-3 3-4 6-4 10s1 7 4 10M12 2c3 3 4 6 4 10s-1 7-4 10"/>
     </svg>
-    <div>Sélectionne un match dans la liste</div>
+    <div>Sélectionne un élément dans la liste</div>
   </div>
   <div id="match-view" style="display:none"></div>
 </div>
 
 <script>
-const PWD = 'OGCNU19VAL';
-const SESSION_KEY = 'ct_auth';
-let allMatches = [], filtered = [], currentId = null, currentMode = 'matchs';
+const PWD = 'OGCNU19VAL', SESSION_KEY = 'ct_auth';
+let allMatches = [], allEquipes = [], filtered = [], currentId = null, currentMode = 'matchs';
 
 function checkPwd() {
   const val = document.getElementById('pwd-input').value;
@@ -239,8 +236,7 @@ function checkPwd() {
     sessionStorage.setItem(SESSION_KEY, '1');
     const s = document.getElementById('login-screen');
     s.style.opacity = '0'; s.style.transition = 'opacity 0.3s';
-    setTimeout(() => s.remove(), 300);
-    init();
+    setTimeout(() => s.remove(), 300); init();
   } else {
     const box = document.querySelector('.login-box');
     document.getElementById('login-error').textContent = 'Mot de passe incorrect';
@@ -248,10 +244,7 @@ function checkPwd() {
     document.getElementById('pwd-input').value = '';
   }
 }
-
-function bootApp() {
-  if (sessionStorage.getItem(SESSION_KEY) === '1') { document.getElementById('login-screen').remove(); init(); }
-}
+function bootApp() { if (sessionStorage.getItem(SESSION_KEY) === '1') { document.getElementById('login-screen').remove(); init(); } }
 bootApp();
 
 const FORMATIONS = {
@@ -261,33 +254,30 @@ const FORMATIONS = {
   '5-3-2':[[0.5],[0.12,0.28,0.5,0.72,0.88],[0.25,0.5,0.75],[0.35,0.65]],
   '3-5-2':[[0.5],[0.28,0.5,0.72],[0.1,0.3,0.5,0.7,0.9],[0.35,0.65]],
   '4-1-4-1':[[0.5],[0.2,0.4,0.6,0.8],[0.5],[0.15,0.38,0.62,0.85],[0.5]],
-  '3-4-3':[[0.5],[0.25,0.5,0.75],[0.15,0.38,0.62,0.85],[0.2,0.5,0.8]],
   '5-4-1':[[0.5],[0.1,0.27,0.5,0.73,0.9],[0.18,0.4,0.6,0.82],[0.5]],
+  '3-4-3':[[0.5],[0.25,0.5,0.75],[0.15,0.38,0.62,0.85],[0.2,0.5,0.8]],
   '4-4-1-1':[[0.5],[0.2,0.4,0.6,0.8],[0.2,0.4,0.6,0.8],[0.5],[0.5]],
 };
-
 function buildFormation(sys) {
   const key = sys.split(' ')[0];
   if (FORMATIONS[key]) return FORMATIONS[key];
-  const parts = key.split('-').map(Number);
-  const rows = [[0.5]];
-  parts.forEach(n => { const xs = []; for (let j=0;j<n;j++) xs.push((j+1)/(n+1)); rows.push(xs); });
+  const parts = key.split('-').map(Number), rows = [[0.5]];
+  parts.forEach(n => { const xs=[]; for(let j=0;j<n;j++) xs.push((j+1)/(n+1)); rows.push(xs); });
   return rows;
 }
-
 function pitchSVG(sys, color) {
   const W=120, H=170, rows=buildFormation(sys), total=rows.length;
   let dots='';
   rows.forEach((xArr,ri) => {
-    const y = 10 + (ri+0.5)*((H-20)/total);
+    const y=10+(ri+0.5)*((H-20)/total);
     xArr.forEach(xr => {
-      const x = 10 + xr*(W-20);
-      dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="${color}" opacity="0.9"/>`;
-      dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>`;
+      const x=10+xr*(W-20);
+      dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="${color}" opacity="0.9"/>`;
+      dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>`;
     });
   });
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="${W}" height="${H}" rx="6" fill="#1e3d10"/>
+    <rect width="${W}" height="${H}" rx="6" fill="#1e3d10"/>
     <rect x="8" y="8" width="${W-16}" height="${H-16}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
     <line x1="8" y1="${H/2}" x2="${W-8}" y2="${H/2}" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
     <circle cx="${W/2}" cy="${H/2}" r="14" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
@@ -300,14 +290,12 @@ function resultColor(r) { return r==='win'?'#4caf63':r==='loss'?'#e84040':'#888'
 function resultLabel(r) { return r==='win'?'Victoire':r==='loss'?'Défaite':'Nul'; }
 
 function setMode(mode) {
-  currentMode = mode;
-  currentId = null;
-  document.getElementById('mode-matchs').className = 'mode-tab' + (mode==='matchs'?' active':'');
-  document.getElementById('mode-analyses').className = 'mode-tab' + (mode==='analyses'?' active':'');
-  document.getElementById('filter-wrap').style.display = mode==='matchs' ? '' : 'none';
+  currentMode = mode; currentId = null;
+  document.getElementById('mode-matchs').className = 'mode-tab'+(mode==='matchs'?' active':'');
+  document.getElementById('mode-analyses').className = 'mode-tab'+(mode==='analyses'?' active':'');
+  document.getElementById('filter-wrap').style.display = mode==='matchs'?'':'none';
   filtered = [...allMatches];
-  if (mode === 'matchs') applyFilter();
-  else renderSidebar();
+  if (mode==='matchs') { applyFilter(); } else { renderEquipeList(); }
   showEmpty();
 }
 
@@ -318,28 +306,43 @@ function showEmpty() {
 
 function applyFilter() {
   const val = document.getElementById('filter-sys').value;
-  filtered = val ? allMatches.filter(m => m.systemOpp.startsWith(val)) : [...allMatches];
-  renderSidebar();
-  if (filtered.length && currentId && !filtered.find(m => m.id===currentId)) showEmpty();
+  filtered = val ? allMatches.filter(m=>m.systemOpp.startsWith(val)) : [...allMatches];
+  renderMatchList();
+  if (currentId && !filtered.find(m=>m.id===currentId)) showEmpty();
 }
 
-function renderSidebar() {
+function renderMatchList() {
   const list = document.getElementById('match-list');
   list.innerHTML = '';
-  if (!filtered.length) { list.innerHTML = '<div style="padding:1rem;font-size:13px;color:var(--dim)">Aucun match trouvé</div>'; return; }
-  const section = document.createElement('div');
-  section.className = 'list-section';
-  section.textContent = filtered.length + ' match' + (filtered.length>1?'s':'');
-  list.appendChild(section);
+  if (!filtered.length) { list.innerHTML='<div style="padding:1rem;font-size:13px;color:var(--dim)">Aucun match trouvé</div>'; return; }
+  const sec=document.createElement('div'); sec.className='list-section';
+  sec.textContent=filtered.length+' match'+(filtered.length>1?'s':''); list.appendChild(sec);
   filtered.forEach(m => {
-    const el = document.createElement('div');
-    const isActive = m.id === currentId;
-    el.className = 'match-item' + (isActive ? (currentMode==='analyses'?' active-analyse':' active') : '');
-    el.innerHTML = `<div class="mi-date">${m.date}</div>
-      <div class="mi-name"><span class="rdot" style="background:${resultColor(m.result)}"></span>${m.opponent}</div>
-      <div class="mi-sys">${m.systemOpp} · ${m.score}</div>`;
-    el.onclick = () => currentMode==='matchs' ? selectMatch(m.id) : selectAnalyse(m.id);
-    list.appendChild(el);
+    const el=document.createElement('div');
+    el.className='match-item'+(m.id===currentId?' active':'');
+    const logoHtml = m.logo ? `<img class="mi-logo" src="${m.logo}" alt="">` : '<div class="mi-logo-placeholder"></div>';
+    const phaseHtml = m.phase ? `<span class="phase-dot phase-${m.phase}">${m.phase==='aller'?'A':'R'}</span>` : '';
+    el.innerHTML=`${logoHtml}<div class="mi-info">
+      <div class="mi-date">${m.date}</div>
+      <div class="mi-name"><span class="rdot" style="background:${resultColor(m.result)}"></span>${m.opponent} ${phaseHtml}</div>
+      <div class="mi-sys">${m.systemOpp} · ${m.score}</div>
+    </div>`;
+    el.onclick=()=>selectMatch(m.id); list.appendChild(el);
+  });
+}
+
+function renderEquipeList() {
+  const list = document.getElementById('match-list');
+  list.innerHTML = '';
+  const sec=document.createElement('div'); sec.className='list-section';
+  sec.textContent=allEquipes.length+' équipe'+(allEquipes.length>1?'s':''); list.appendChild(sec);
+  allEquipes.forEach(eq => {
+    const matchsEq = allMatches.filter(m=>m.equipeId===eq.id);
+    const el=document.createElement('div');
+    el.className='equipe-item'+(eq.id===currentId?' active':'');
+    const logoHtml = eq.logo ? `<img class="equipe-logo" src="${eq.logo}" alt="">` : '<div class="mi-logo-placeholder"></div>';
+    el.innerHTML=`${logoHtml}<span class="equipe-nom">${eq.nom}</span><span class="equipe-count">${matchsEq.length}M</span>`;
+    el.onclick=()=>selectEquipe(eq.id); list.appendChild(el);
   });
 }
 
@@ -347,47 +350,42 @@ function renderStats() {
   const w=allMatches.filter(m=>m.result==='win').length;
   const d=allMatches.filter(m=>m.result==='draw').length;
   const l=allMatches.filter(m=>m.result==='loss').length;
-  document.getElementById('stats-row').innerHTML = `
+  document.getElementById('stats-row').innerHTML=`
     <div class="stat-pill"><div class="val" style="color:#4caf63">${w}</div><div class="lbl">V</div></div>
     <div class="stat-pill"><div class="val" style="color:#888">${d}</div><div class="lbl">N</div></div>
     <div class="stat-pill"><div class="val" style="color:#e84040">${l}</div><div class="lbl">D</div></div>`;
 }
 
 function populateFilter() {
-  const sel = document.getElementById('filter-sys');
-  const systems = [...new Set(allMatches.map(m=>m.systemOpp.split(' ')[0]))].sort();
-  systems.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+  const sel=document.getElementById('filter-sys');
+  [...new Set(allMatches.map(m=>m.systemOpp.split(' ')[0]))].sort().forEach(s=>{
+    const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o);
+  });
 }
 
 /* ── MATCH VIEW ── */
 function selectMatch(id) {
-  currentId = id;
-  renderSidebar();
-  const m = allMatches.find(x=>x.id===id);
-  if (!m) return;
-  document.getElementById('empty').style.display = 'none';
-  const view = document.getElementById('match-view');
-  view.style.display = 'block';
-  const rcClass = `badge-${m.result}`;
-  const stars = [1,2,3,4,5].map(i=>`<span class="star${i<=(m.rating||0)?' on':''}">${i<=(m.rating||0)?'★':'☆'}</span>`).join('');
-  const animHtml = (m.animations||[]).map(a=>`
-    <div class="anim-item">
-      <span class="anim-badge ${a.type==='def'?'anim-def':'anim-off'}">${a.type==='def'?'Déf':'Off'}</span>
-      <div><div class="anim-label">${a.label}</div><div class="anim-detail">${a.detail}</div></div>
-    </div>`).join('') || '<div style="color:var(--dim);font-size:13px;padding:8px 0">Aucune animation renseignée</div>';
-  const solHtml = (m.solutions||[]).map(s=>`
-    <div class="solution-item"><div class="solution-title">${s.title}</div><div class="solution-detail">${s.detail}</div></div>`).join('') || '<div style="color:var(--dim);font-size:13px">Aucune solution renseignée</div>';
-  const notes = (m.notes||'Aucune note pour ce match.').replace(/\\n/g,'\n');
-
-  view.innerHTML = `
+  currentId=id; renderMatchList();
+  const m=allMatches.find(x=>x.id===id); if(!m) return;
+  document.getElementById('empty').style.display='none';
+  const view=document.getElementById('match-view'); view.style.display='block';
+  const stars=[1,2,3,4,5].map(i=>`<span class="star${i<=(m.rating||0)?' on':''}">${i<=(m.rating||0)?'★':'☆'}</span>`).join('');
+  const animHtml=(m.animations||[]).map(a=>`<div class="anim-item">
+    <span class="anim-badge ${a.type==='def'?'anim-def':'anim-off'}">${a.type==='def'?'Déf':'Off'}</span>
+    <div><div class="anim-label">${a.label}</div><div class="anim-detail">${a.detail}</div></div>
+  </div>`).join('')||'<div style="color:var(--dim);font-size:13px;padding:8px 0">Aucune animation renseignée</div>';
+  const solHtml=(m.solutions||[]).map(s=>`<div class="solution-item"><div class="solution-title">${s.title}</div><div class="solution-detail">${s.detail}</div></div>`).join('')||'<div style="color:var(--dim);font-size:13px">Aucune solution renseignée</div>';
+  const phaseBadge = m.phase ? `<span class="badge badge-${m.phase}">${m.phase==='aller'?'Aller':'Retour'}</span>` : '';
+  view.innerHTML=`
     <div class="match-header">
       <div style="display:flex;align-items:center;gap:1rem">
         ${m.logo?`<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">`:''}
         <div>
           <div class="match-title">vs <span style="color:var(--gold)">${m.opponent}</span></div>
           <div class="match-badges">
-            <span class="badge ${rcClass}">${resultLabel(m.result)} ${m.score}</span>
+            <span class="badge badge-${m.result}">${resultLabel(m.result)} ${m.score}</span>
             <span class="badge badge-sys">${m.systemUs}</span>
+            ${phaseBadge}
             <span class="badge badge-date">${m.date}</span>
           </div>
         </div>
@@ -395,175 +393,171 @@ function selectMatch(id) {
       <div class="stars">${stars}</div>
     </div>
     <div class="tabs">
-      <div class="tab active" id="tab-analyse" onclick="switchTab('analyse','tab-')">Analyse</div>
-      <div class="tab" id="tab-solutions" onclick="switchTab('solutions','tab-')">Solutions</div>
-      <div class="tab" id="tab-notes" onclick="switchTab('notes','tab-')">Notes</div>
+      <div class="tab active" id="tab-analyse" onclick="switchTab('analyse','tab-',['analyse','solutions','notes'])">Analyse</div>
+      <div class="tab" id="tab-solutions" onclick="switchTab('solutions','tab-',['analyse','solutions','notes'])">Solutions</div>
+      <div class="tab" id="tab-notes" onclick="switchTab('notes','tab-',['analyse','solutions','notes'])">Notes</div>
     </div>
     <div id="pane-analyse">
       <div class="grid2">
-        <div class="card">
-          <div class="card-title">Système adverse</div>
-          <div class="formation-label" style="color:#7ab8f0">${m.systemOpp}</div>
-          <div class="pitch-wrap">${pitchSVG(m.systemOpp,'#4a90d9')}</div>
-        </div>
-        <div class="card">
-          <div class="card-title">Notre système</div>
-          <div class="formation-label" style="color:var(--gold)">${m.systemUs.split(' ')[0]}</div>
-          <div class="pitch-wrap">${pitchSVG(m.systemUs,'#e8001c')}</div>
-        </div>
+        <div class="card"><div class="card-title">Système adverse</div><div class="formation-label" style="color:#7ab8f0">${m.systemOpp}</div><div class="pitch-wrap">${pitchSVG(m.systemOpp,'#4a90d9')}</div></div>
+        <div class="card"><div class="card-title">Notre système</div><div class="formation-label" style="color:var(--gold)">${m.systemUs.split(' ')[0]}</div><div class="pitch-wrap">${pitchSVG(m.systemUs,'#e8001c')}</div></div>
       </div>
-      <div class="card">
-        <div class="card-title">Animations rencontrées</div>
-        ${animHtml}
-      </div>
+      <div class="card"><div class="card-title">Animations rencontrées</div>${animHtml}</div>
     </div>
     <div id="pane-solutions" style="display:none">${solHtml}</div>
     <div id="pane-notes" style="display:none">
-      <div class="card">
-        <div class="card-title" style="margin-bottom:10px">Notes libres</div>
-        <div class="notes-block">${notes}</div>
+      <div class="card"><div class="card-title" style="margin-bottom:10px">Notes libres</div>
+        <div class="notes-block">${(m.notes||'Aucune note.').replace(/\\n/g,'\n')}</div>
         <div style="font-size:12px;color:var(--dim);margin-top:8px">Pour modifier, édite <strong style="color:var(--gold)">matchs.json</strong> sur GitHub.</div>
       </div>
     </div>`;
 }
 
-function switchTab(tab, prefix) {
-  const tabs = prefix==='tab-' ? ['analyse','solutions','notes'] : ['collectif','compo','saison'];
-  tabs.forEach(t => {
-    const el = document.getElementById(prefix+t);
-    if (el) el.className = 'tab' + (t===tab?(prefix==='atab-'?' active-gold':' active'):'');
-    const pane = document.getElementById('pane-'+t);
-    if (pane) pane.style.display = t===tab?'':'none';
-  });
+/* ── EQUIPE VIEW ── */
+function selectEquipe(id) {
+  currentId=id; renderEquipeList();
+  const eq=allEquipes.find(x=>x.id===id); if(!eq) return;
+  document.getElementById('empty').style.display='none';
+  const view=document.getElementById('match-view'); view.style.display='block';
+  renderEquipeView(eq, 'aller');
 }
 
-/* ── ANALYSE VIEW ── */
-function selectAnalyse(id) {
-  currentId = id;
-  renderSidebar();
-  const m = allMatches.find(x=>x.id===id);
-  if (!m) return;
-  document.getElementById('empty').style.display = 'none';
-  const view = document.getElementById('match-view');
-  view.style.display = 'block';
+function renderEquipeView(eq, phase) {
+  const view=document.getElementById('match-view');
+  const matchsAller=allMatches.filter(m=>m.equipeId===eq.id&&m.phase==='aller');
+  const matchsRetour=allMatches.filter(m=>m.equipeId===eq.id&&m.phase==='retour');
+  const matchsPhase=phase==='aller'?matchsAller:matchsRetour;
+  const m=matchsPhase.length?matchsPhase[matchsPhase.length-1]:null;
 
-  const a = m.analyse || {};
-  const sections = [
-    { key: 'orgaOff', label: 'Organisation offensive' },
-    { key: 'orgaDef', label: 'Organisation défensive' },
-    { key: 'transitions', label: 'Transitions' },
-    { key: 'cpa', label: 'Coups de pied arrêtés' }
+  const sections=[
+    {key:'orgaOff',label:'Organisation offensive'},
+    {key:'orgaDef',label:'Organisation défensive'},
+    {key:'transitions',label:'Transitions'},
+    {key:'cpa',label:'Coups de pied arrêtés'}
   ];
-  const collectifHtml = sections.map(s => `
+
+  const a = m&&m.analyse ? m.analyse : {};
+  const collectifHtml = sections.map(s=>`
     <div class="analyse-section">
       <div class="analyse-section-title">${s.label}</div>
-      ${a[s.key] ? `<div class="analyse-text">${a[s.key].replace(/\\n/g,'\n')}</div>` : '<div class="analyse-empty">Non renseigné</div>'}
+      ${a[s.key]?`<div class="analyse-text">${a[s.key].replace(/\\n/g,'\n')}</div>`:'<div class="analyse-empty">Non renseigné — à compléter dans matchs.json</div>'}
     </div>`).join('');
 
-  const comp = m.composition || [];
-  const titulaires = comp.filter(j=>j.statut==='titulaire');
-  const banc = comp.filter(j=>j.statut==='banc');
-
-  const playerRow = j => `<tr>
+  const comp=m&&m.composition?m.composition:[];
+  const titulaires=comp.filter(j=>j.statut==='titulaire');
+  const banc=comp.filter(j=>j.statut==='banc');
+  const playerRow=j=>`<tr>
     <td><span class="num-badge">${j.numero}</span></td>
     <td style="font-weight:500">${j.nom}</td>
     <td><span class="poste-badge">${j.poste}</span></td>
     <td><span class="${j.statut==='titulaire'?'statut-tit':'statut-banc'}">${j.statut==='titulaire'?'Titulaire':'Banc'}</span></td>
   </tr>`;
-
-  const compoHtml = comp.length ? `
-    ${titulaires.length ? `<div class="compo-group-title">Titulaires (${titulaires.length})</div>
+  const compoHtml=comp.length?`
+    ${titulaires.length?`<div class="compo-group-title">Titulaires (${titulaires.length})</div>
     <table class="compo-table"><thead><tr><th>#</th><th>Nom</th><th>Poste</th><th>Statut</th></tr></thead>
-    <tbody>${titulaires.map(playerRow).join('')}</tbody></table>` : ''}
-    ${banc.length ? `<div class="compo-group-title">Banc (${banc.length})</div>
+    <tbody>${titulaires.map(playerRow).join('')}</tbody></table>`:''}
+    ${banc.length?`<div class="compo-group-title">Banc (${banc.length})</div>
     <table class="compo-table"><thead><tr><th>#</th><th>Nom</th><th>Poste</th><th>Statut</th></tr></thead>
-    <tbody>${banc.map(playerRow).join('')}</tbody></table>` : ''}
-  ` : '<div class="analyse-empty" style="padding:1rem 0">Aucune composition renseignée pour ce match.</div>';
+    <tbody>${banc.map(playerRow).join('')}</tbody></table>`:''}`
+    :`<div class="no-match-notice">${m?'Aucune composition renseignée pour ce match.':'Aucun match '+phase+' joué contre cette équipe.'}</div>`;
 
-  const saisonHtml = buildSaisonHtml(m.opponent);
+  const saisonHtml=buildSaisonStats(eq.id, phase);
 
-  view.innerHTML = `
+  const allerCount=matchsAller.length, retourCount=matchsRetour.length;
+
+  view.innerHTML=`
     <div class="match-header">
       <div style="display:flex;align-items:center;gap:1rem">
-        ${m.logo?`<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">`:''}
+        ${eq.logo?`<img src="${eq.logo}" alt="${eq.nom}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">`:''}
         <div>
-          <div class="match-title" style="font-size:32px">Analyse — <span style="color:var(--gold)">${m.opponent}</span></div>
+          <div class="match-title" style="font-size:32px"><span style="color:var(--gold)">${eq.nom}</span></div>
           <div class="match-badges">
-            <span class="badge badge-sys">${m.systemOpp}</span>
-            <span class="badge badge-date">${m.date}</span>
+            <span class="badge badge-sys">${allMatches.filter(m=>m.equipeId===eq.id).length} match(s)</span>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="phase-tabs">
+      <button class="phase-tab ${phase==='aller'?'active-aller':''}" onclick="renderEquipeView(allEquipes.find(e=>e.id==='${eq.id}'),'aller')">
+        Aller ${allerCount?`(${allerCount})`:''}
+      </button>
+      <button class="phase-tab ${phase==='retour'?'active-retour':''}" onclick="renderEquipeView(allEquipes.find(e=>e.id==='${eq.id}'),'retour')">
+        Retour ${retourCount?`(${retourCount})`:''}
+      </button>
+    </div>
+
     <div class="tabs">
-      <div class="tab active-gold" id="atab-collectif" onclick="switchTab('collectif','atab-')">Collectif</div>
-      <div class="tab" id="atab-compo" onclick="switchTab('compo','atab-')">Feuille de match</div>
-      <div class="tab" id="atab-saison" onclick="switchTab('saison','atab-')">Saison</div>
+      <div class="tab active-gold" id="etab-collectif" onclick="switchTab('collectif','etab-',['collectif','compo','saison'])">Collectif</div>
+      <div class="tab" id="etab-compo" onclick="switchTab('compo','etab-',['collectif','compo','saison'])">Feuille de match</div>
+      <div class="tab" id="etab-saison" onclick="switchTab('saison','etab-',['collectif','compo','saison'])">Saison</div>
     </div>
     <div id="pane-collectif"><div class="card">${collectifHtml}</div></div>
     <div id="pane-compo" style="display:none"><div class="card">${compoHtml}</div></div>
     <div id="pane-saison" style="display:none">${saisonHtml}</div>`;
 }
 
-function buildSaisonHtml(opponent) {
-  const matchsEquipe = allMatches.filter(m => m.opponent === opponent && m.composition && m.composition.length);
-  if (!matchsEquipe.length) return '<div class="card"><div class="analyse-empty" style="padding:1rem 0">Aucune composition renseignée pour cet adversaire.</div></div>';
-
-  const playerStats = {};
-  matchsEquipe.forEach(m => {
-    m.composition.forEach(j => {
-      const key = j.nom + '_' + j.numero;
-      if (!playerStats[key]) playerStats[key] = { nom: j.nom, numero: j.numero, tit: 0, joue: 0, postes: new Set() };
-      if (j.statut === 'titulaire') playerStats[key].tit++;
-      playerStats[key].joue++;
-      playerStats[key].postes.add(j.poste);
+function buildSaisonStats(equipeId, phase) {
+  const matchsEq=allMatches.filter(m=>m.equipeId===equipeId&&m.phase===phase&&m.composition&&m.composition.length);
+  if (!matchsEq.length) return `<div class="card"><div class="no-match-notice">Aucune composition renseignée pour la phase ${phase}.</div></div>`;
+  const stats={};
+  matchsEq.forEach(m=>{
+    m.composition.forEach(j=>{
+      const k=j.nom+'_'+j.numero;
+      if(!stats[k]) stats[k]={nom:j.nom,numero:j.numero,tit:0,joue:0,postes:new Set()};
+      if(j.statut==='titulaire') stats[k].tit++;
+      stats[k].joue++; stats[k].postes.add(j.poste);
     });
   });
-
-  const sorted = Object.values(playerStats).sort((a,b) => b.tit - a.tit || b.joue - a.joue);
-
-  const rows = sorted.map(p => `<tr>
+  const rows=Object.values(stats).sort((a,b)=>b.tit-a.tit||b.joue-a.joue).map(p=>`<tr>
     <td><span class="num-badge">${p.numero}</span></td>
     <td style="font-weight:500">${p.nom}</td>
     <td><span class="stat-num">${p.tit}</span></td>
     <td><span class="stat-num">${p.joue}</span></td>
     <td><div class="postes-list">${[...p.postes].map(po=>`<span class="poste-badge">${po}</span>`).join('')}</div></td>
   </tr>`).join('');
-
   return `<div class="card">
-    <div class="card-title" style="margin-bottom:1rem">Stats saison — ${opponent} (${matchsEquipe.length} match${matchsEquipe.length>1?'s':''})</div>
-    <table class="saison-table">
-      <thead><tr><th>#</th><th>Joueur</th><th>Tit.</th><th>Joués</th><th>Postes</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-  </div>`;
+    <div class="card-title" style="margin-bottom:1rem">Stats ${phase} — ${matchsEq.length} match(s) avec composition</div>
+    <table class="saison-table"><thead><tr><th>#</th><th>Joueur</th><th>Tit.</th><th>Joués</th><th>Postes</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
+}
+
+function switchTab(tab, prefix, all) {
+  all.forEach(t=>{
+    const el=document.getElementById(prefix+t);
+    if(el) el.className='tab'+(t===tab?(prefix==='etab-'?' active-gold':' active'):'');
+    const pane=document.getElementById('pane-'+t);
+    if(pane) pane.style.display=t===tab?'':'none';
+  });
 }
 
 async function init() {
   try {
-    const res = await fetch('matchs.json?t=' + Date.now());
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    allMatches = await res.json();
-    filtered = [...allMatches];
+    const t=Date.now();
+    const [resM, resE] = await Promise.all([
+      fetch('matchs.json?t='+t),
+      fetch('equipes.json?t='+t)
+    ]);
+    if(!resM.ok) throw new Error('matchs.json introuvable (HTTP '+resM.status+')');
+    if(!resE.ok) throw new Error('equipes.json introuvable (HTTP '+resE.status+')');
+    allMatches=await resM.json();
+    allEquipes=await resE.json();
+    filtered=[...allMatches];
 
-    if (allMatches.length) {
-      const years = allMatches.map(m => { const p=m.date.split(' '); return p[p.length-1]; }).filter(Boolean);
-      const minY=Math.min(...years), maxY=Math.max(...years);
-      document.getElementById('season-label').textContent = minY===maxY ? `Saison ${minY}` : `Saison ${minY}–${String(maxY).slice(-2)}`;
+    if(allMatches.length){
+      const years=allMatches.map(m=>{const p=m.date.split(' ');return p[p.length-1];}).filter(Boolean);
+      const minY=Math.min(...years),maxY=Math.max(...years);
+      document.getElementById('season-label').textContent=minY===maxY?`Saison ${minY}`:`Saison ${minY}–${String(maxY).slice(-2)}`;
     }
-
-    populateFilter();
-    renderStats();
-    renderSidebar();
-    if (allMatches.length) selectMatch(allMatches[0].id);
+    populateFilter(); renderStats(); renderMatchList();
+    if(allMatches.length) selectMatch(allMatches[0].id);
   } catch(e) {
-    document.getElementById('main').innerHTML = `
-      <div class="error-banner">Impossible de charger <strong>matchs.json</strong>.<br>Vérifie que le fichier est bien à la racine de ton repo GitHub.<br><small style="opacity:0.7">${e.message}</small></div>
-      <div style="font-size:13px;color:var(--dim);line-height:1.7">Si tu ouvres ce fichier en local, publie sur GitHub Pages et tout fonctionnera.</div>`;
+    document.getElementById('main').innerHTML=`
+      <div class="error-banner">Impossible de charger les données.<br><small style="opacity:0.7">${e.message}</small></div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.7">Vérifie que <strong>matchs.json</strong> et <strong>equipes.json</strong> sont bien à la racine de ton repo GitHub.</div>`;
   } finally {
-    const loader = document.getElementById('loading');
-    loader.style.opacity = '0';
-    setTimeout(() => loader.remove(), 400);
+    const loader=document.getElementById('loading');
+    loader.style.opacity='0'; setTimeout(()=>loader.remove(),400);
   }
 }
 </script>
