@@ -3,6 +3,7 @@
     "id": 1,
     "date": "17 jan. 2026",
     "opponent": "AS Monaco",
+    "phase": "retour",
     "logo": "logos/ASM.png",
     "competition": "U19",
     "score": "1 - 1",
@@ -67,8 +68,9 @@
     "id": 2,
     "date": "24 jan. 2026",
     "opponent": "Cavigal Nice",
+    "phase": "retour",
     "logo": "logos/CAVIGAL.png",
-    "competition": "Coupe",
+    "competition": "U19",
     "score": "0 - 1",
     "result": "loss",
     "systemOpp": "5-4-1",
@@ -116,16 +118,17 @@
       ]
     }
   },
-  {
+{
     "id": 3,
-    "date": "07 mar. 2026",
-    "opponent": "Balma SC",
-    "logo": "logos/BALMA.png",
+    "date": "08 fev. 2026",
+    "opponent": "Air-bel",
+    "phase": "retour",
+    "logo": "logos/ARIBEL.png",
     "competition": "U19",
-    "score": "2 - 1",
+    "score": "1 - 0",
     "result": "loss",
     "systemOpp": "4-1-4-1",
-    "systemUs": "4-3-3",
+    "systemUs": "4-4-2",
     "analyseAdverse": {
       "orgaOff": "",
       "orgaDef": "",
@@ -135,8 +138,146 @@
     },
     "planJeu": { "contenu": "", "consignes": "" },
     "pendantMatch": { "observations": "", "ajustements": "", "evenements": "" },
-    "bilan": { "positifs": "", "aCorreger": "", "note": 3 },
-    "feuilleAdverse": { "systeme": "4-1-4-1", "joueurs": [] },
-    "feuilleNous": { "systeme": "4-3-3", "joueurs": [] }
-  }
+    "bilan": { "positifs": "", "aCorreger": "", "note": 2 },
+    "feuilleAdverse": {
+      "systeme": "5-4-1",
+      "joueurs": [
+        { "nom": "Martin", "numero": 1 },
+        { "nom": "Dupont", "numero": 2 },
+        { "nom": "Bernard", "numero": 4 },
+        { "nom": "Rossi", "numero": 5 },
+        { "nom": "Laurent", "numero": 3 },
+        { "nom": "Garcia", "numero": 6 },
+        { "nom": "Petit", "numero": 8 },
+        { "nom": "Blanc", "numero": 7 },
+        { "nom": "Simon", "numero": 11 },
+        { "nom": "Moreau", "numero": 9 },
+        { "nom": "Thomas", "numero": 10 }
+      ]
+    },
+    "feuilleNous": {
+      "systeme": "4-4-2",
+      "joueurs": [
+        { "nom": "Köhn", "numero": 1 },
+        { "nom": "Draxler", "numero": 2 },
+        { "nom": "Silva", "numero": 5 },
+        { "nom": "Mendes", "numero": 4 },
+        { "nom": "Diop", "numero": 3 },
+        { "nom": "Camara", "numero": 8 },
+        { "nom": "N'Doye", "numero": 6 },
+        { "nom": "Traoré", "numero": 7 },
+        { "nom": "Koné", "numero": 11 },
+        { "nom": "Mbaye", "numero": 9 },
+        { "nom": "Sylla", "numero": 10 }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "date": "15 fev. 2026",
+    "opponent": "Montpellier SHC",
+    "phase": "retour",
+    "logo": "logos/MSHC.png",
+    "competition": "U19",
+    "score": "2 - 1",
+    "result": "win",
+    "systemOpp": "4-1-4-1",
+    "systemUs": "4-4-2",
+    "analyseAdverse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": "",
+      "pointsAttention": ""
+    },
+    "planJeu": { "contenu": "", "consignes": "" },
+    "pendantMatch": { "observations": "", "ajustements": "", "evenements": "" },
+    "bilan": { "positifs": "", "aCorreger": "", "note": 2 },
+    "feuilleAdverse": {
+      "systeme": "5-4-1",
+      "joueurs": [
+        { "nom": "Martin", "numero": 1 },
+        { "nom": "Dupont", "numero": 2 },
+        { "nom": "Bernard", "numero": 4 },
+        { "nom": "Rossi", "numero": 5 },
+        { "nom": "Laurent", "numero": 3 },
+        { "nom": "Garcia", "numero": 6 },
+        { "nom": "Petit", "numero": 8 },
+        { "nom": "Blanc", "numero": 7 },
+        { "nom": "Simon", "numero": 11 },
+        { "nom": "Moreau", "numero": 9 },
+        { "nom": "Thomas", "numero": 10 }
+      ]
+    },
+    "feuilleNous": {
+      "systeme": "4-4-2",
+      "joueurs": [
+        { "nom": "Köhn", "numero": 1 },
+        { "nom": "Draxler", "numero": 2 },
+        { "nom": "Silva", "numero": 5 },
+        { "nom": "Mendes", "numero": 4 },
+        { "nom": "Diop", "numero": 3 },
+        { "nom": "Camara", "numero": 8 },
+        { "nom": "N'Doye", "numero": 6 },
+        { "nom": "Traoré", "numero": 7 },
+        { "nom": "Koné", "numero": 11 },
+        { "nom": "Mbaye", "numero": 9 },
+        { "nom": "Sylla", "numero": 10 }
+      ]
+    }
+  },
+   {
+    "id": 5,
+    "date": "07 mar. 2026",
+    "opponent": "Balma SC",
+    "phase": "retour",
+    "logo": "logos/BALMA.png",
+    "competition": "U19",
+    "score": "2 - 1",
+    "result": "loss",
+    "systemOpp": "4-1-4-1",
+    "systemUs": "4-4-2",
+    "analyseAdverse": {
+      "orgaOff": "",
+      "orgaDef": "",
+      "transitions": "",
+      "cpa": "",
+      "pointsAttention": ""
+    },
+    "planJeu": { "contenu": "", "consignes": "" },
+    "pendantMatch": { "observations": "", "ajustements": "", "evenements": "" },
+    "bilan": { "positifs": "", "aCorreger": "", "note": 2 },
+    "feuilleAdverse": {
+      "systeme": "5-4-1",
+      "joueurs": [
+        { "nom": "Martin", "numero": 1 },
+        { "nom": "Dupont", "numero": 2 },
+        { "nom": "Bernard", "numero": 4 },
+        { "nom": "Rossi", "numero": 5 },
+        { "nom": "Laurent", "numero": 3 },
+        { "nom": "Garcia", "numero": 6 },
+        { "nom": "Petit", "numero": 8 },
+        { "nom": "Blanc", "numero": 7 },
+        { "nom": "Simon", "numero": 11 },
+        { "nom": "Moreau", "numero": 9 },
+        { "nom": "Thomas", "numero": 10 }
+      ]
+    },
+    "feuilleNous": {
+      "systeme": "4-4-2",
+      "joueurs": [
+        { "nom": "Köhn", "numero": 1 },
+        { "nom": "Draxler", "numero": 2 },
+        { "nom": "Silva", "numero": 5 },
+        { "nom": "Mendes", "numero": 4 },
+        { "nom": "Diop", "numero": 3 },
+        { "nom": "Camara", "numero": 8 },
+        { "nom": "N'Doye", "numero": 6 },
+        { "nom": "Traoré", "numero": 7 },
+        { "nom": "Koné", "numero": 11 },
+        { "nom": "Mbaye", "numero": 9 },
+        { "nom": "Sylla", "numero": 10 }
+      ]
+    }
+  },
 ]
