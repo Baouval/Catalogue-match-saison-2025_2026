@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "date": " jan. 2026",
+    "date": " 17 jan. 2026",
     "opponent": "AS Monaco",
     "logo": "logos/ASM.png",
     "score": "1 - 1",
@@ -35,12 +35,115 @@
   },
   {
     "id": 2,
+    "date": "24 janv. 2026",
+    "opponent": "Cavigal Nice",
+    "logo": "logos/CAVIGAL.png",
+    "score": "0 - 1",
+    "result": "loss",
+    "systemOpp": "5-4-1",
+    "systemUs": "4-4-2",
+    "animations": [
+      {
+        "type": "off",
+        "label": "Jeu entre les lignes",
+        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
+      },
+      {
+        "type": "def",
+        "label": "Bloc bas compact",
+        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
+      }
+    ],
+    "solutions": [
+      {
+        "title": "Overloads côtés + permutations",
+        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
+      },
+      {
+        "title": "Jeu long sur le 2e rideau",
+        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
+      }
+    ],
+    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
+    "rating": 3
+  }
+  {
+    "id": 3,
     "date": "26 oct. 2024",
-    "opponent": "AS Modane",
-    "score": "0 - 0",
-    "result": "draw",
-    "systemOpp": "5-3-2",
-    "systemUs": "4-3-3",
+    "opponent": "Air Bel",
+    "logo": "logos/AIRBEL.png",
+    "score": "1 - 0",
+    "result": "loss",
+    "systemOpp": "4-1-4-1",
+    "systemUs": "4-4-2",
+    "animations": [
+      {
+        "type": "off",
+        "label": "Jeu entre les lignes",
+        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
+      },
+      {
+        "type": "def",
+        "label": "Bloc bas compact",
+        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
+      }
+    ],
+    "solutions": [
+      {
+        "title": "Overloads côtés + permutations",
+        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
+      },
+      {
+        "title": "Jeu long sur le 2e rideau",
+        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
+      }
+    ],
+    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
+    "rating": 3
+  }
+    {
+    "id": 4,
+    "date": "15 fev. 2026",
+    "opponent": "Montpellier HSC",
+    "logo": "logos/MHSC.png",
+    "score": "2 - 1",
+    "result": "win",
+    "systemOpp": "4-1-4-1",
+    "systemUs": "4-4-2",
+    "animations": [
+      {
+        "type": "off",
+        "label": "Jeu entre les lignes",
+        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
+      },
+      {
+        "type": "def",
+        "label": "Bloc bas compact",
+        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
+      }
+    ],
+    "solutions": [
+      {
+        "title": "Overloads côtés + permutations",
+        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
+      },
+      {
+        "title": "Jeu long sur le 2e rideau",
+        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
+      }
+    ],
+    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
+    "rating": 3
+  }
+   {
+    "id": 5,
+    "date": "07 mar. 2026",
+    "opponent": "Balma SC",
+    "logo": "logos/BALMA.png",
+    "score": "2 - 1",
+    "result": "loss",
+    "systemOpp": "4-1-4-1",
+    "systemUs": "4-4-2",
     "animations": [
       {
         "type": "off",
