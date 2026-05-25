@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "date": "12 oct. 2024",
+    "opponent": "FC Valloire",
+    "score": "2 - 1",
+    "result": "win",
+    "systemOpp": "4-3-3",
+    "systemUs": "4-4-2",
+    "animations": [
+      {
+        "type": "off",
+        "label": "Pressing haut coordonné",
+        "detail": "Déclenchement sur relance du gardien, 2e ligne qui monte"
+      },
+      {
+        "type": "def",
+        "label": "Blocage de la largeur côté fort",
+        "detail": "Milieu latéral qui referme sur le porteur en zone 3"
+      }
+    ],
+    "solutions": [
+      {
+        "title": "Orientation vers le côté fermé",
+        "detail": "Forcer la relance vers le côté le plus pressé pour récupérer haut."
+      },
+      {
+        "title": "Double pivot en protection",
+        "detail": "Les 2 milieux centraux restent écartés pour couvrir les espaces dans le dos du pressing."
+      }
+    ],
+    "notes": "Bonne gestion du bloc bas en 2e mi-temps. À retravailler : la couverture sur les coups de pied arrêtés.",
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "date": "26 oct. 2024",
+    "opponent": "AS Modane",
+    "score": "0 - 0",
+    "result": "draw",
+    "systemOpp": "5-3-2",
+    "systemUs": "4-3-3",
+    "animations": [
+      {
+        "type": "off",
+        "label": "Jeu entre les lignes",
+        "detail": "Le n°10 cherche à se glisser entre la ligne de 5 et les 3 milieux"
+      },
+      {
+        "type": "def",
+        "label": "Bloc bas compact",
+        "detail": "L'équipe adverse s'organise en 2 lignes de 5 pour défendre les espaces"
+      }
+    ],
+    "solutions": [
+      {
+        "title": "Overloads côtés + permutations",
+        "detail": "Surcharger un couloir avec latéral + ailier + milieu pour créer la surnombre."
+      },
+      {
+        "title": "Jeu long sur le 2e rideau",
+        "detail": "Utiliser le pivot pour fixer la ligne défensive et libérer les attaquants dans le dos."
+      }
+    ],
+    "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
+    "rating": 3
+  }
+]
