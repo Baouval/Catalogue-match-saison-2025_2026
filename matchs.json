@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "date": " 17 jan. 2026",
+    "date": "17 jan. 2026",
     "opponent": "AS Monaco",
     "logo": "logos/ASM.png",
     "score": "1 - 1",
@@ -30,12 +30,12 @@
         "detail": "1 attaquant qui s'insére au milieu de terrain"
       }
     ],
-    "notes": "Difficulté pour ressortir les ballons face à leur pressing intense. \n Quasiment impossible de trouver des hommes libres à l'intérieur. \n Beaucoup de jeu long. Peu de maîtrise",
+    "notes": "Difficulté pour ressortir les ballons face à leur pressing intense.\nQuasiment impossible de trouver des hommes libres à l'intérieur.\nBeaucoup de jeu long. Peu de maîtrise.",
     "rating": 2
   },
   {
     "id": 2,
-    "date": "24 janv. 2026",
+    "date": "24 jan. 2026",
     "opponent": "Cavigal Nice",
     "logo": "logos/CAVIGAL.png",
     "score": "0 - 1",
@@ -101,7 +101,7 @@
     "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
     "rating": 3
   },
-    {
+  {
     "id": 4,
     "date": "15 fev. 2026",
     "opponent": "Montpellier HSC",
@@ -135,7 +135,7 @@
     "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
     "rating": 3
   },
-   {
+  {
     "id": 5,
     "date": "07 mar. 2026",
     "opponent": "Balma SC",
@@ -168,5 +168,5 @@
     ],
     "notes": "Manque de créativité face au bloc bas. Travailler les combinaisons courtes dans les petits espaces.",
     "rating": 3
-  },
+  }
 ]
