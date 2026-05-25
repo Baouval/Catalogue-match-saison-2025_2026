@@ -241,7 +241,7 @@ function buildFormation(sys){
 
 function terrainAvecJoueurs(feuille, accentColor, label){
   if(!feuille||!feuille.systeme) return `<div class="terrain-block"><div class="terrain-label">${label}</div><div style="color:var(--dim);font-size:13px;text-align:center;padding:2rem">Non renseigné</div></div>`;
-  const W=300, H=420;
+  const W=500, H=620;
   const R=18; // rayon cercle joueur
   const rows=buildFormation(feuille.systeme);
   const joueurs=feuille.joueurs||[];
