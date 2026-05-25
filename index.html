@@ -99,8 +99,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);
 .empty-text{color:var(--dim);font-style:italic;font-size:13px;padding:6px 0;}
 
 /* TERRAIN FEUILLE */
-.terrain-wrap{display:flex;gap:1rem;flex-wrap:wrap;}
-.terrain-block{flex:1;min-width:200px;}
+.terrain-wrap{display:flex;flex-direction:column;gap:2rem;}
+.terrain-block{display:flex;flex-direction:column;align-items:center;}
 .terrain-label{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);margin-bottom:8px;text-align:center;}
 .terrain-svg-wrap{display:flex;justify-content:center;}
 
@@ -240,40 +240,40 @@ function buildFormation(sys){
 }
 
 function terrainAvecJoueurs(feuille, accentColor, label){
-  if(!feuille||!feuille.systeme) return `<div class="terrain-block"><div class="terrain-label">${label}</div><div style="color:var(--dim);font-size:12px;text-align:center;padding:1rem">Non renseigné</div></div>`;
-  const W=160, H=220;
+  if(!feuille||!feuille.systeme) return `<div class="terrain-block"><div class="terrain-label">${label}</div><div style="color:var(--dim);font-size:13px;text-align:center;padding:2rem">Non renseigné</div></div>`;
+  const W=300, H=420;
+  const R=18; // rayon cercle joueur
   const rows=buildFormation(feuille.systeme);
   const joueurs=feuille.joueurs||[];
   const total=rows.length;
   let idx=0, elements='';
 
   rows.forEach((xArr,ri)=>{
-    const y=14+(ri+0.5)*((H-28)/total);
+    const y=20+(ri+0.5)*((H-40)/total);
     xArr.forEach(xr=>{
-      const x=10+xr*(W-20);
+      const x=16+xr*(W-32);
       const j=joueurs[idx]||null; idx++;
-      // cercle joueur
-      elements+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13" fill="${accentColor}" opacity="0.85"/>`;
-      elements+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>`;
+      elements+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${R}" fill="${accentColor}" opacity="0.88"/>`;
+      elements+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${R}" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1"/>`;
       if(j){
-        // numéro
-        elements+=`<text x="${x.toFixed(1)}" y="${(y-2).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="8" font-weight="600" font-family="DM Sans,sans-serif">${j.numero}</text>`;
-        // nom tronqué
-        const nom=j.nom.length>8?j.nom.substring(0,7)+'…':j.nom;
-        elements+=`<text x="${x.toFixed(1)}" y="${(y+15).toFixed(1)}" text-anchor="middle" fill="rgba(245,242,235,0.8)" font-size="7.5" font-family="DM Sans,sans-serif">${nom}</text>`;
+        elements+=`<text x="${x.toFixed(1)}" y="${(y+1).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="12" font-weight="700" font-family="DM Sans,sans-serif">${j.numero}</text>`;
+        const nom=j.nom.length>10?j.nom.substring(0,9)+'…':j.nom;
+        elements+=`<text x="${x.toFixed(1)}" y="${(y+R+11).toFixed(1)}" text-anchor="middle" fill="rgba(245,242,235,0.92)" font-size="11" font-weight="500" font-family="DM Sans,sans-serif">${nom}</text>`;
       }
     });
   });
 
-  const svg=`<svg width="${W}" height="${H+10}" viewBox="0 0 ${W} ${H+10}" xmlns="http://www.w3.org/2000/svg">
-    <rect width="${W}" height="${H}" rx="6" fill="#1a3a0e"/>
-    <rect x="6" y="6" width="${W-12}" height="${H-12}" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
-    <line x1="6" y1="${H/2}" x2="${W-6}" y2="${H/2}" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
-    <circle cx="${W/2}" cy="${H/2}" r="18" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
-    <rect x="${W*0.22}" y="6" width="${W*0.56}" height="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
-    <rect x="${W*0.22}" y="${H-32}" width="${W*0.56}" height="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
+  const svg=`<svg width="${W}" height="${H+18}" viewBox="0 0 ${W} ${H+18}" xmlns="http://www.w3.org/2000/svg">
+    <rect width="${W}" height="${H}" rx="8" fill="#1a3a0e"/>
+    <rect x="8" y="8" width="${W-16}" height="${H-16}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <line x1="8" y1="${H/2}" x2="${W-8}" y2="${H/2}" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <circle cx="${W/2}" cy="${H/2}" r="32" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <rect x="${W*0.22}" y="8" width="${W*0.56}" height="44" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <rect x="${W*0.33}" y="8" width="${W*0.34}" height="20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <rect x="${W*0.22}" y="${H-52}" width="${W*0.56}" height="44" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <rect x="${W*0.33}" y="${H-28}" width="${W*0.34}" height="20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
     ${elements}
-    <text x="${W/2}" y="${H+8}" text-anchor="middle" fill="rgba(245,242,235,0.4)" font-size="8" font-family="DM Sans,sans-serif">${feuille.systeme}</text>
+    <text x="${W/2}" y="${H+14}" text-anchor="middle" fill="rgba(245,242,235,0.45)" font-size="11" font-family="DM Sans,sans-serif">${feuille.systeme}</text>
   </svg>`;
 
   return `<div class="terrain-block">
