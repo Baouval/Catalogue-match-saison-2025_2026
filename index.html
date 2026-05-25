@@ -8,17 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-dark: #0d2212;
-    --green-mid: #1a3d22;
-    --green-pitch: #2d5a1b;
-    --green-line: #3a7a25;
-    --accent: #c8f53a;
-    --accent-dim: #8ab828;
+    --green-dark: #0e0e0e;
+    --green-mid: #1a1a1a;
+    --green-pitch: #1e1e1e;
+    --green-line: #2a2a2a;
+    --accent: #e8001c;
+    --accent-dim: #b00015;
+    --gold: #d4a843;
     --white: #f5f2eb;
     --white-dim: rgba(245,242,235,0.55);
-    --white-faint: rgba(245,242,235,0.12);
+    --white-faint: rgba(245,242,235,0.08);
     --red: #e84040;
-    --amber: #f0a020;
+    --amber: #d4a843;
     --sidebar-w: 280px;
     --radius: 10px;
   }
@@ -40,7 +41,7 @@
     min-width: var(--sidebar-w);
     height: 100vh;
     background: var(--green-mid);
-    border-right: 1px solid rgba(200,245,58,0.12);
+    border-right: 1px solid rgba(232,0,28,0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -55,7 +56,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
     letter-spacing: 0.04em;
-    color: var(--accent);
+    color: var(--gold);
     line-height: 1;
   }
 
@@ -131,7 +132,7 @@
   .match-item:hover { background: var(--white-faint); }
 
   .match-item.active {
-    background: rgba(200,245,58,0.08);
+    background: rgba(232,0,28,0.08);
     border-left-color: var(--accent);
   }
 
@@ -263,7 +264,7 @@
   .badge-result-win { background: rgba(50,180,80,0.18); color: #6ee87a; border: 1px solid rgba(50,180,80,0.3); }
   .badge-result-draw { background: rgba(200,200,200,0.1); color: #bbb; border: 1px solid rgba(200,200,200,0.2); }
   .badge-result-loss { background: rgba(232,64,64,0.15); color: #f07070; border: 1px solid rgba(232,64,64,0.3); }
-  .badge-sys { background: rgba(200,245,58,0.1); color: var(--accent); border: 1px solid rgba(200,245,58,0.25); }
+  .badge-sys { background: rgba(212,168,67,0.12); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
   .badge-date { background: var(--white-faint); color: var(--white-dim); border: 1px solid transparent; }
 
   .stars {
@@ -359,7 +360,7 @@
     text-transform: uppercase;
   }
 
-  .anim-off { background: rgba(200,245,58,0.12); color: var(--accent); border: 1px solid rgba(200,245,58,0.25); }
+  .anim-off { background: rgba(232,0,28,0.12); color: #ff6070; border: 1px solid rgba(232,0,28,0.25); }
   .anim-def { background: rgba(50,130,230,0.12); color: #7ab8f0; border: 1px solid rgba(50,130,230,0.25); }
 
   .anim-label { font-size: 13px; font-weight: 500; color: var(--white); }
@@ -367,8 +368,8 @@
 
   /* ── SOLUTIONS ── */
   .solution-item {
-    background: rgba(200,245,58,0.05);
-    border: 1px solid rgba(200,245,58,0.12);
+    background: rgba(212,168,67,0.06);
+    border: 1px solid rgba(212,168,67,0.2);
     border-radius: 8px;
     padding: 12px 14px;
     margin-bottom: 8px;
@@ -377,7 +378,7 @@
   .solution-title {
     font-size: 14px;
     font-weight: 500;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 4px;
   }
 
@@ -474,19 +475,26 @@
 
   .login-box {
     background: var(--green-mid);
-    border: 1px solid rgba(200,245,58,0.15);
+    border: 1px solid rgba(212,168,67,0.25);
     border-radius: 14px;
     padding: 2.5rem 2rem;
     width: 320px;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    align-items: center;
+  }
+
+  .login-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 
   .login-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--accent);
+    font-size: 28px;
+    color: var(--gold);
     letter-spacing: 0.05em;
     text-align: center;
     line-height: 1;
@@ -496,7 +504,7 @@
     font-size: 12px;
     color: var(--white-dim);
     text-align: center;
-    margin-top: -0.5rem;
+    margin-top: -0.75rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
@@ -504,7 +512,7 @@
   .login-input {
     width: 100%;
     background: var(--white-faint);
-    border: 1px solid rgba(200,245,58,0.15);
+    border: 1px solid rgba(212,168,67,0.2);
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 18px;
@@ -516,12 +524,12 @@
     transition: border-color 0.15s;
   }
 
-  .login-input:focus { border-color: var(--accent); }
+  .login-input:focus { border-color: var(--gold); }
 
   .login-btn {
     width: 100%;
     background: var(--accent);
-    color: var(--green-dark);
+    color: var(--white);
     font-family: 'Bebas Neue', sans-serif;
     font-size: 18px;
     letter-spacing: 0.08em;
@@ -572,6 +580,7 @@
 
 <div id="login-screen">
   <div class="login-box">
+    <img src="logos/OGCN.png" alt="OGC Nice" class="login-logo"/>
     <div class="login-title">Catalogue Tactique</div>
     <div class="login-sub">Accès privé</div>
     <input class="login-input" type="password" id="pwd-input" placeholder="••••••••••" maxlength="30" onkeydown="if(event.key==='Enter')checkPwd()"/>
@@ -601,7 +610,7 @@
   <div class="sidebar-footer">
     <div class="stats-row" id="stats-row"></div>
     <div style="font-size:11px;color:var(--white-dim);line-height:1.5">
-      Pour ajouter un match, édite <strong style="color:var(--accent)">matchs.json</strong> sur GitHub.
+      Pour ajouter un match, édite <strong style="color:var(--gold)">matchs.json</strong> sur GitHub.
     </div>
   </div>
 </div>
@@ -804,7 +813,7 @@ function selectMatch(id) {
   view.innerHTML = `
     <div class="match-header">
       <div>
-        <div class="match-title">vs <span>${m.opponent}</span></div>
+        <div class="match-title">vs <span style="color:var(--gold)">${m.opponent}</span></div>
         <div class="match-badges">
           <span class="badge ${rcClass}">${resultLabel(m.result)} ${m.score}</span>
           <span class="badge badge-sys">${m.systemUs}</span>
@@ -829,8 +838,8 @@ function selectMatch(id) {
         </div>
         <div class="card">
           <div class="card-title">Notre système</div>
-          <div class="formation-label" style="color:var(--accent)">${m.systemUs.split(' ')[0]}</div>
-          <div class="pitch-wrap">${pitchSVG(m.systemUs, '#c8f53a')}</div>
+          <div class="formation-label" style="color:var(--gold)">${m.systemUs.split(' ')[0]}</div>
+          <div class="pitch-wrap">${pitchSVG(m.systemUs, '#e8001c')}</div>
         </div>
       </div>
       <div class="card">
@@ -848,7 +857,7 @@ function selectMatch(id) {
         <div class="card-title" style="margin-bottom:10px">Notes libres</div>
         <textarea readonly placeholder="Aucune note pour ce match.">${m.notes || ''}</textarea>
         <div style="font-size:12px;color:var(--white-dim);margin-top:8px">
-          Pour modifier, édite <strong style="color:var(--accent)">matchs.json</strong> dans ton repo GitHub.
+          Pour modifier, édite <strong style="color:var(--gold)">matchs.json</strong> dans ton repo GitHub.
         </div>
       </div>
     </div>
