@@ -812,12 +812,15 @@ function selectMatch(id) {
 
   view.innerHTML = `
     <div class="match-header">
-      <div>
-        <div class="match-title">vs <span style="color:var(--gold)">${m.opponent}</span></div>
-        <div class="match-badges">
-          <span class="badge ${rcClass}">${resultLabel(m.result)} ${m.score}</span>
-          <span class="badge badge-sys">${m.systemUs}</span>
-          <span class="badge badge-date">${m.date}</span>
+      <div style="display:flex;align-items:center;gap:1rem">
+        ${m.logo ? `<img src="${m.logo}" alt="${m.opponent}" style="width:52px;height:52px;object-fit:contain;flex-shrink:0">` : ''}
+        <div>
+          <div class="match-title">vs <span style="color:var(--gold)">${m.opponent}</span></div>
+          <div class="match-badges">
+            <span class="badge ${rcClass}">${resultLabel(m.result)} ${m.score}</span>
+            <span class="badge badge-sys">${m.systemUs}</span>
+            <span class="badge badge-date">${m.date}</span>
+          </div>
         </div>
       </div>
       <div class="stars">${stars}</div>
@@ -855,7 +858,7 @@ function selectMatch(id) {
     <div id="pane-notes" style="display:none">
       <div class="notes-area">
         <div class="card-title" style="margin-bottom:10px">Notes libres</div>
-        <textarea readonly placeholder="Aucune note pour ce match.">${m.notes || ''}</textarea>
+        <div style="background:var(--white-faint);border:1px solid rgba(212,168,67,0.15);border-radius:8px;padding:12px;font-size:14px;line-height:1.7;color:var(--white);white-space:pre-line;min-height:80px">${(m.notes||'Aucune note pour ce match.').replace(/\\n/g,'\n')}</div>
         <div style="font-size:12px;color:var(--white-dim);margin-top:8px">
           Pour modifier, édite <strong style="color:var(--gold)">matchs.json</strong> dans ton repo GitHub.
         </div>
